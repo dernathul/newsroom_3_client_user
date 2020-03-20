@@ -10,6 +10,7 @@ describe("user views articles", () => {
     });
     
     it ('displays article', () => {
-        cy.get("#title").should("contain", "Title")
+        cy.get("#title").should("contain", "Zero infected on Mars")
+        cy.get("#content").should("contain", "Mars declared that it will deny entry for humans...")
     });
   })
