@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import ArticlesList from './ArticlesList'
+import ArticlesList from './components/ArticlesList'
 
 class App extends Component {
-
 
   render() {
     return (

@@ -8,26 +8,24 @@ class ArticlesList extends Component {
   }
 
   componentDidMount() {
-    debugger
     axios.get('/articles').then(response => {
-      debugger
       this.setState({
         articlesIndex: response.data.articles
       })
     })
   }
 
-  render (){
+  render() {
     const articlesIndex = this.state.articlesIndex
     let showArticles
 
-    if (articlesIndex.length > 0) {
+    if (articlesIndex !== []) {
       showArticles = articlesIndex.map(article => {
         return (
           <>
             <div key={article.id} className='article'>
-              <div className=".article-title">{article.title}</div>
-              <div className=".article-content">{article.content}</div>
+              <div className=".article-title" id="title"><h3>{article.title}</h3></div>
+              <div className=".article-content" id="snippet"><p>{article.snippet}</p></div>
             </div>
           </>
         )
