@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-export class ArticlesList extends Component {
+class ArticlesList extends Component {
 
   state = {
-    articles: []
+    articlesIndex: []
   }
 
   componentDidMount() {
     debugger
-    axios.get('/articles').then((response) => {
-      this.setState({ articles: response.data.articles })
+    axios.get('/articles').then(response => {
+      debugger
+      this.setState({
+        articlesIndex: response.data.articles
+      })
     })
-
-
   }
-  render() {
+
+  render (){
+    const articlesIndex = this.state.articlesIndex
     let showArticles
-    showArticles = this.state.articles.map((article) => {
-      return(
-        <div id = "title" key={article.id}>
-          <h1 >{article.title}</h1>
-        </div>
-      )
+
+    if (articlesIndex.length > 0) {
+      showArticles = articlesIndex.map(article => {
+        return (
+          <>
+            <div key={article.id} className='article'>
+              <div className=".article-title">{article.title}</div>
+              <div className=".article-content">{article.content}</div>
+            </div>
+          </>
+        )
+      })
     }
-    )
     return (
       <div>
-        {showArticles}
+        <div id="title">{showArticles}</div>
       </div>
     )
   }
