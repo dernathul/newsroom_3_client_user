@@ -18,23 +18,19 @@ class ArticlesList extends Component {
   render() {
     const articlesIndex = this.state.articlesIndex
     let showArticles
-
     if (articlesIndex !== []) {
       showArticles = articlesIndex.map(article => {
-        return (
-          <>
-            <div key={article.id} className='article'>
-              <div className=".article-title" id="title"><h3>{article.title}</h3></div>
-              <div className=".article-content" id="snippet"><p>{article.snippet}</p></div>
-            </div>
-          </>
+        return (        
+          <div id={'article-' + article.id} key={article.id}>
+            <h3 id="title">{article.title}</h3>
+            <p id="snippet">{article.snippet}</p>
+          </div>
         )
+       
       })
     }
     return (
-      <div>
-        <div id="title">{showArticles}</div>
-      </div>
+      <div>{showArticles}</div>
     )
   }
 }

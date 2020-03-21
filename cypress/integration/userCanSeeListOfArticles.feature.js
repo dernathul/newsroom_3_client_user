@@ -3,7 +3,7 @@ describe("user sees articles", () => {
     cy.visit("/")
   });
 
-  describe('successfully', () => {
+  describe('successfully displays', () => {
     before(() => {
       cy.server();
       cy.route({
@@ -13,17 +13,29 @@ describe("user sees articles", () => {
       })
     })
 
-    it('User sees title', () => {
-      cy.get(".article").within(() => {
-        cy.get("#title").within(() => {
-          cy.contains('Zero infected on Mars')
-          cy.contains('Lau new president')
-          })
-        cy.get("#snippet").within(() => {
-          cy.contains('Mars becomes more and more desirable as Earth is struggling with Corona Virus')
-          cy.contains('Mars wants Lau on the front line')
-          })
-       })
+    it('first article', () => {
+      cy.get("#article-1").within(() => {
+        cy.get("#title").should("contain", "Zero infected on Mars")
+        cy.get("#snippet").should("contain", "Mars becomes more and more desirable as Earth is struggling with Corona Virus")
+      })
+    })
+  })
+ 
+  describe('successfully displays', () => {
+    before(() => {
+      cy.server();
+      cy.route({
+        method: 'GET',
+        url: 'http://localhost:3000/api/v1/articles',
+        response: 'fixture:articles.json'
+      })
+    })
+  
+    it('second article', () => {
+      cy.get("#article-2").within(() => {
+        cy.get("#title").should("contain", "Lau new president")
+        cy.get("#snippet").should("contain", "Mars wants Lau on the front line")
+      })
     })
   })
 })
