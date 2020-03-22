@@ -24,6 +24,7 @@ class ArticlesList extends Component {
           <div id={'article-' + article.id} key={article.id}>
             <h3 id="title">{article.title}</h3>
             <p id="snippet">{article.snippet}</p>
+            <p id="snippet">{article.content}</p>
           </div>
         )
        
