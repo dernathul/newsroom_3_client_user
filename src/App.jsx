@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticlesList from './components/ArticlesList';
+// import ArticlesList from './components/ArticlesList';
 import DisplayArticles from './components/DisplayArticles'
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
       <>
         <h1>The Mars Times</h1>
         <DisplayArticles />
-        <ArticlesList />
+        {/* <ArticlesList /> */}
       </>
     )
   }
