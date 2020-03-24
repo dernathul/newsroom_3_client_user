@@ -1,10 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 // import ArticlesList from './components/ArticlesList';
-import DisplayArticles from './components/DisplayArticles'
+import DisplayArticles from './components/DisplayArticles';
+import {fetchArticles} from './state/actions/articleAction';
+import { bindActionCreators } from 'redux'
 
 const App = props => {
-
+ props.fetchArticles()
   
     return (
       <>
@@ -14,8 +16,12 @@ const App = props => {
       </>
     )
 }
-
-export default App
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchArticles: bindActionCreators(fetchArticles, dispatch)
+  }
+}
+export default connect(null, mapDispatchToProps)(App)
 
 
 
