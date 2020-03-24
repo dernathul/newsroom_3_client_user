@@ -9,11 +9,19 @@ class DisplayArticles extends Component {
   this.props.fetchArticles()
   }
   render() {
-    debugger
+    let articleDisplay = this.props.articles.map(article => {
+      return(
+        <>
+          <h4>{article.title}</h4>
+          <h5>{article.snippet}</h5>
+          <p>{article.content}</p>
+        </>
+      )
+    })
     return (
-    <div>
-
-    </div>
+    <>
+      {articleDisplay}
+    </>
     );
   }
 }
