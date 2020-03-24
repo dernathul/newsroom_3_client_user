@@ -9,6 +9,7 @@ class DisplayArticles extends Component {
   this.props.fetchArticles()
   }
   render() {
+    debugger
     return (
     <div>
 
@@ -17,10 +18,15 @@ class DisplayArticles extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    articles: state.articles
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
     fetchArticles: bindActionCreators(fetchArticles, dispatch)
   }
 }
 
-export default connect(null, mapDispatchToProps)(DisplayArticles);
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayArticles);
