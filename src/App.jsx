@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DisplayArticles from './components/DisplayArticles';
-import {fetchArticles} from './state/actions/articleAction';
+import { fetchArticles } from './state/actions/articleAction';
 import { bindActionCreators } from 'redux'
 
 const App = props => {
- props.fetchArticles()
-  
+  props.fetchArticles()
+
   return (
     <>
       <h1>The Mars Times</h1>
@@ -22,8 +22,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(null, mapDispatchToProps)(App)
-
-
-
-
-

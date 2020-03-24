@@ -6,7 +6,6 @@ const fetchArticles = () => {
   return async dispatch => {
     let response = await axios.get(apiURL)
     return dispatch(dispatchArticleAction(response.data))
-
   }
 }
 const dispatchArticleAction = json => {

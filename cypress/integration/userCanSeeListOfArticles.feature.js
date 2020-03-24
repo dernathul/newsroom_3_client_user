@@ -15,11 +15,11 @@ describe('successfully displays', () => {
       cy.get("#snippet").should("contain", "Mars becomes more and more desirable as Earth is struggling with Corona Virus")
     })
   })
-  
+
   it('second article', () => {
     cy.get("#article-2").within(() => {
       cy.get("#title").should("contain", "Lau new president")
       cy.get("#snippet").should("contain", "Mars wants Lau on the front line")
     })
-  }) 
+  })
 })

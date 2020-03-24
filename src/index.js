@@ -9,7 +9,7 @@ import configureStore from './state/store/configureStore'
 const store = configureStore()
 window.store = store
 ReactDOM.render(
-    <Provider store = {store}>
-        <App />
-    </Provider>, document.getElementById('root'));
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root'));
 serviceWorker.unregister();
