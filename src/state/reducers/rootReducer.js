@@ -10,7 +10,7 @@ const rootReducer = (state = initialState, action) => {
         }
 
   default:
-    debugger
+  // debugger
     return state
     }
 

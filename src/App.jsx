@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
 // import ArticlesList from './components/ArticlesList';
 import DisplayArticles from './components/DisplayArticles'
 
-class App extends Component {
+const App = props => {
 
-  render() {
+  
     return (
       <>
         <h1>The Mars Times</h1>
@@ -12,7 +13,6 @@ class App extends Component {
         {/* <ArticlesList /> */}
       </>
     )
-  }
 }
 
 export default App

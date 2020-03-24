@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux'
 class DisplayArticles extends Component {
 
   componentDidMount() {
-  this.props.fetchArticles()
-  debugger
+  //fetchArticles()
+  //debugger
   }
   render() {
     return (
