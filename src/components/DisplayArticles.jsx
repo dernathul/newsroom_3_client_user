@@ -6,11 +6,11 @@ class DisplayArticles extends Component {
   render() {
     let articleDisplay = this.props.articles.map(article => {
       return (
-        <>
-          <h4 key={article.id}>{article.title}</h4>
-          <h5>{article.snippet}</h5>
+        <div id={'article-' + article.id} >
+          <h4 id="title" key={article.id}>{article.title}</h4>
+          <h5 id="snippet">{article.snippet}</h5>
           <p>{article.content}</p>
-        </>
+        </div>
       )
     })
     return (
