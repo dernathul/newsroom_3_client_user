@@ -8,6 +8,7 @@ const fetchArticles = () => {
     return dispatch(dispatchArticleAction(response.data))
   }
 }
+
 const dispatchArticleAction = json => {
   return { type: 'GET_ARTICLE_DATA', payload: json }
 }
