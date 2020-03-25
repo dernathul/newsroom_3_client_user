@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import ArticlesList from './components/ArticlesList'
+import React from 'react';
+import { connect } from 'react-redux';
+import DisplayArticles from './components/DisplayArticles';
+import { fetchArticles } from './state/actions/articleAction';
+import { bindActionCreators } from 'redux'
 
-class App extends Component {
+const App = props => {
+  props.fetchArticles()
 
-  render() {
-    return (
-      <>
-        <h1>The Mars Times</h1>
-        <ArticlesList />
-      </>
-    )
+  return (
+    <>
+      <h1>The Mars Times</h1>
+      <DisplayArticles />
+    </>
+  )
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchArticles: bindActionCreators(fetchArticles, dispatch)
   }
 }
 
-export default App
-
-
-
-
-
+export default connect(null, mapDispatchToProps)(App)
