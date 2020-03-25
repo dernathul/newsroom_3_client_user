@@ -1,5 +1,5 @@
 import initialState from '../store/initialState'
-import { GET_ARTICLE_DATA } from './actions/actionTypes'
+import { GET_ARTICLE_DATA } from '../actions/actionTypes'
 
 
 const rootReducer = (state = initialState, action) => {
