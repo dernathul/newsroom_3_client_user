@@ -8,7 +8,7 @@ const DisplayArticles = props => {
     props.fetchSingleArticle(articleId)
   }
   
-    let articleDisplay = this.props.articles.map(article => {
+    let articleDisplay = props.articles.map(article => {
       return (
         <div id="article-list" key={article.id}>
           <h4 id="title" >
