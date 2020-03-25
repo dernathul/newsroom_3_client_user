@@ -9,7 +9,6 @@ class DisplayArticles extends Component {
         <div id={'article-' + article.id} >
           <h4 id="title" key={article.id}>{article.title}</h4>
           <h5 id="snippet">{article.snippet}</h5>
-          <p>{article.content}</p>
         </div>
       )
     })
