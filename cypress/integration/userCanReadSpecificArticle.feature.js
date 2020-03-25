@@ -10,6 +10,9 @@ describe('Visitor can read', () => {
   })
 
   it('a specific article', () => {
-    cy.get()
+    cy.get("#article-list").within(()=> {
+      cy.get("#open-article").click()
+    })
+    cy.get("#single-article").should('contain', "This is a smashing title")
   })
 })

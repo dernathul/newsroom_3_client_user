@@ -10,8 +10,8 @@ const DisplayArticles = props => {
   
     let articleDisplay = this.props.articles.map(article => {
       return (
-        <div id={"article-" + article.id}>
-          <h4 id="title" key={article.id}>
+        <div id="article-list" key={article.id}>
+          <h4 id="title" >
             {article.title}
           </h4>
           <h5 id="snippet">{article.snippet}</h5>
