@@ -7,8 +7,16 @@ const DisplayArticles = props => {
   const showArticle = articleId => {
     props.fetchSingleArticle(articleId);
   };
+  let articles;
+  if (props.selectedCategory) {
+    articles = props.articles.filter(article => {
+      return article.category === props.selectedCategory && article;
+    });
+  } else {
+    articles = props.articles;
+  }
 
-  let articleDisplay = props.articles.map(article => {
+  let articleDisplay = articles.map(article => {
     return (
       <div id={`article-${article.id}`} key={article.id}>
         <h4 id="title">{article.title}</h4>
@@ -28,7 +36,8 @@ const DisplayArticles = props => {
 
 const mapStateToProps = state => {
   return {
-    articles: state.articles
+    articles: state.articles,
+    selectedCategory: state.selectedCategory
   };
 };
 const mapDispatchToProps = dispatch => {
