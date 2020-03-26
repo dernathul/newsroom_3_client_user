@@ -26,7 +26,7 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.SELECT_CATEGORY:
       return {
         ...state,
-        selectedCategory: action.payload,
+        selectedCategory: action.payload.selectedCategory,
         activeItem: action.payload,
         singleArticle: undefined,
         articleList: true

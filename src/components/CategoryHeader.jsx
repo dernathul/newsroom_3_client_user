@@ -16,9 +16,7 @@ const CategoryHeader = props => {
           name="latest_news"
           id="latest_news"
           active={props.activeItem === "latest_news"}
-          onClick={event => {
-            handleItemClick(event);
-          }}
+          onClick={handleItemClick}
         >
           Latest News
         </Menu.Item>
@@ -26,9 +24,7 @@ const CategoryHeader = props => {
           name="tech"
           id="tech"
           active={props.activeItem === "tech"}
-          onClick={event => {
-            handleItemClick(event);
-          }}
+          onClick= {handleItemClick}
         >
           Tech
         </Menu.Item>
@@ -36,9 +32,7 @@ const CategoryHeader = props => {
           name="sports"
           id="sports"
           active={props.activeItem === "sports"}
-          onClick={event => {
-            handleItemClick(event);
-          }}
+          onClick={handleItemClick}
         >
           Sports
         </Menu.Item>
@@ -46,9 +40,7 @@ const CategoryHeader = props => {
           name="politics"
           id="politics"
           active={props.activeItem === "politics"}
-          onClick={event => {
-            handleItemClick(event);
-          }}
+          onClick={handleItemClick}
         >
           Politics
         </Menu.Item>
@@ -56,9 +48,7 @@ const CategoryHeader = props => {
           name="culture"
           id="culture"
           active={props.activeItem === "culture"}
-          onClick={event => {
-            handleItemClick(event);
-          }}
+          onClick={handleItemClick}
         >
           Culture
         </Menu.Item>

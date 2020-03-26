@@ -16,7 +16,7 @@ const DisplayArticles = props => {
     articles = props.articles;
   }
 
-  let articleDisplay = props.articles.map(article => {
+  let articleDisplay = articles.map(article => {
     return (
       <div id={`article-${article.id}`} key={article.id}>
         <h4 id="title">{article.title}</h4>
