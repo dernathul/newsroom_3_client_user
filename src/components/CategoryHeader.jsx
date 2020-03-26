@@ -14,7 +14,7 @@ const CategoryHeader = props => {
       <Menu id="category-header" inverted pointing secondary>
         <Menu.Item
           name="latest_news"
-          id="latest_news-tab"
+          id="latest_news"
           active={props.activeItem === "latest_news"}
           onClick={event => {
             handleItemClick(event);
@@ -24,7 +24,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="tech"
-          id="tech-tab"
+          id="tech"
           active={props.activeItem === "tech"}
           onClick={event => {
             handleItemClick(event);
@@ -34,7 +34,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="sports"
-          id="sports-tab"
+          id="sports"
           active={props.activeItem === "sports"}
           onClick={event => {
             handleItemClick(event);
@@ -44,7 +44,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="politics"
-          id="politics-tab"
+          id="politics"
           active={props.activeItem === "politics"}
           onClick={event => {
             handleItemClick(event);
@@ -54,7 +54,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="culture"
-          id="culture-tab"
+          id="culture"
           active={props.activeItem === "culture"}
           onClick={event => {
             handleItemClick(event);

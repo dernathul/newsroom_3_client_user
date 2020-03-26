@@ -15,7 +15,10 @@ describe("User can select article by category", () => {
   });
   it("can see all articles in one category", () => {
     cy.get("#category-header");
-    cy.get("#sports-tab").click();
+    cy.get("#sports").click();
     cy.get("#article-list").should("contain", "This is a smashing title");
+    cy.get("#article-list").should("not.contain", "Zero infected on Mars");
+    cy.get("#article-list").should("not.contain", "Lau new president");
+
   });
 });
