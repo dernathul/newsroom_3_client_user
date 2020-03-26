@@ -4,12 +4,14 @@ import DisplayArticles from './components/DisplayArticles';
 import DisplaySingleArticle from './components/DisplaySingleArticle';
 import { fetchArticles } from './state/actions/articleAction';
 import { bindActionCreators } from 'redux'
+import CategoryHeader from './components/CategoryHeader';
 
 const App = props => {
   props.fetchArticles()
 
   return (
     <>
+    <CategoryHeader/>
       <h1>The Mars Times</h1>
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && < DisplaySingleArticle />}
