@@ -1,29 +1,40 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchSingleArticle } from "../state/actions/articleAction";
 
-class DisplayArticles extends Component {
+const DisplayArticles = props => {
+  const showArticle = articleId => {
+    props.fetchSingleArticle(articleId);
+  };
 
-  render() {
-    let articleDisplay = this.props.articles.map(article => {
-      return (
-        <div id={'article-' + article.id} >
-          <h4 id="title" key={article.id}>{article.title}</h4>
-          <h5 id="snippet">{article.snippet}</h5>
-        </div>
-      )
-    })
+  let articleDisplay = props.articles.map(article => {
     return (
-      <>
-        {articleDisplay}
-      </>
+      <div id={`article-${article.id}`} key={article.id}>
+        <h4 id="title">{article.title}</h4>
+        <h5 id="snippet">{article.snippet}</h5>
+        <button
+          id="open-article"
+          onClick={() => showArticle(article.id)}
+          key={article.id}
+        >
+          Read more
+        </button>
+      </div>
     );
-  }
-}
+  });
+  return <div id="article-list">{articleDisplay}</div>;
+};
 
 const mapStateToProps = state => {
   return {
     articles: state.articles
-  }
-}
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSingleArticle: bindActionCreators(fetchSingleArticle, dispatch)
+  };
+};
 
-export default connect(mapStateToProps)(DisplayArticles);
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayArticles);
