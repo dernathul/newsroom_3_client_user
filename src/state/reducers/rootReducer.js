@@ -16,6 +16,13 @@ const rootReducer = (state = initialState, action) => {
         articleList: false
       } 
 
+    case actionTypes.BACK_TO_ARTICLES_LIST:
+      return {
+        ...state,
+        singleArticle: undefined,
+        articleList: true
+      }
+
     default:
       return state
   }

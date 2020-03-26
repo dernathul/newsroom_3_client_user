@@ -24,4 +24,11 @@ describe('Visitor can read', () => {
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get('#article-list').should('not.exist')
   })
+
+  it('User can go back to article list', () => {
+    cy.get("#single-article").within(() => {
+      cy.get("#home-button").click()
+    })
+    cy.get("#article-list").should('contain', "Zero infected on Mars")
+  })
 })
