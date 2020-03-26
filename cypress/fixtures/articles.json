@@ -14,9 +14,9 @@
     },
     {
       "id": 3,
-    "title": "This is a smashing title",
-    "snippet": "And this is an awesome snippet",
-    "category": "sports"
+      "title": "This is a smashing title",
+      "snippet": "And this is an awesome snippet",
+      "category": "sports"
     }
   ]
 }
