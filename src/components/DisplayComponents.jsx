@@ -1,6 +1,10 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import CategoryHeader from "./components/CategoryHeader";
+import { connect } from "react-redux";
+import DisplayArticles from "./DisplayArticles";
+import DisplaySingleArticle from "./DisplaySingleArticle";
+import { fetchArticles } from "./state/actions/articleAction";
+import { bindActionCreators } from "redux";
+import CategoryHeader from "./CategoryHeader";
 
 const App = props => {
   props.fetchArticles();
@@ -8,12 +12,9 @@ const App = props => {
   return (
     <>
       <CategoryHeader />
-      <Switch>
-        <Route exact path="/" component></Route>
-        <Route exact path="/tech" component></Route>
-        <Route exact path="/sports" component></Route>
-        <Route exact path="/politics" component></Route>
-      </Switch>
+      <h1>The Mars Times</h1>
+      {props.articleList && <DisplayArticles />}
+      {props.singleArticle && <DisplaySingleArticle />}
     </>
   );
 };

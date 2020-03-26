@@ -7,13 +7,13 @@ const DisplayArticles = props => {
   const showArticle = articleId => {
     props.fetchSingleArticle(articleId);
   };
-  let articles
+  let articles;
   if (props.selectedCategory) {
-    articles = props.articles.filter(article=>{
-      return article.category === props.selectedCategory && article
-    })
-  }else {
-    articles = props.articles
+    articles = props.articles.filter(article => {
+      return article.category === props.selectedCategory && article;
+    });
+  } else {
+    articles = props.articles;
   }
 
   let articleDisplay = props.articles.map(article => {
