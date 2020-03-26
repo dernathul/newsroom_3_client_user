@@ -10,10 +10,8 @@ const DisplayArticles = props => {
   
     let articleDisplay = props.articles.map(article => {
       return (
-        <div id="article-list" key={article.id}>
-          <h4 id="title" >
-            {article.title}
-          </h4>
+        <div id={`article-${article.id}`} key={article.id}>
+          <h4 id="title">{article.title}</h4>
           <h5 id="snippet">{article.snippet}</h5>
           <button
             id="open-article"
@@ -25,7 +23,7 @@ const DisplayArticles = props => {
         </div>
       );
     });
-    return <>{articleDisplay}</>;
+    return <div id='article-list'>{articleDisplay}</div>;
   }
 
 const mapStateToProps = state => {

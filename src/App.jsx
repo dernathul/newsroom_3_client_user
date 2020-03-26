@@ -6,13 +6,12 @@ import { fetchArticles } from './state/actions/articleAction';
 import { bindActionCreators } from 'redux'
 
 const App = props => {
-  debugger
   props.fetchArticles()
 
   return (
     <>
       <h1>The Mars Times</h1>
-      <DisplayArticles />
+      {props.articleList && <DisplayArticles />}
       {props.singleArticle && < DisplaySingleArticle />}
     </>
   )
@@ -26,7 +25,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return{
-    singleArticle: state.singleArticle
+    singleArticle: state.singleArticle,
+    articleList: state.articleList
   }
 }
 

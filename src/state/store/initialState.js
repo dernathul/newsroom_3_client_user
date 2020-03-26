@@ -1,5 +1,6 @@
 const initialState = {
   articles: [],
+  articleList: true,
   singleArticle: undefined
 }
 
