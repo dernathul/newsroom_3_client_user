@@ -61,8 +61,7 @@ describe("Visitor can read", () => {
     cy.get("h5").should("contain", "And this is an awesome snippet");
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get("#article-list").should("not.exist");
-  });
-  it("a premium article", () => {
+    cy.get("#home-button").click();
     cy.get("#article-list").within(() => {
       cy.get("#article-1");
       cy.get("#open-article").click();
@@ -94,8 +93,8 @@ describe("Visitor can read", () => {
     cy.get("h5").should("contain", "And this is an awesome snippet");
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get("#article-list").should("not.exist");
-  });
-  it("a premium article", () => {
+    cy.get("#home-button").click();
+
     cy.get("#article-list").within(() => {
       cy.get("#article-1");
       cy.get("#open-article").click();

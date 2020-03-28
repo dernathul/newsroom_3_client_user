@@ -4,7 +4,7 @@ const initialState = {
   singleArticle: undefined,
   activeItem: 'latest_news',
   selectedCategory: '',
-  currentUser: ''
+  currentUser: {}
 };
 
 export default initialState;

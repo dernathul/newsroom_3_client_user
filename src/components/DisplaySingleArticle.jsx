@@ -15,7 +15,7 @@ const DisplaySingleArticle = props => {
     ) : (
       <PremiumContent />
     );
-
+debugger
   articleDetails = (
     <>
       <h3 key={article.title}>{article.title}</h3>
