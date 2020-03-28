@@ -4,8 +4,9 @@ import DisplayArticles from "./DisplayArticles";
 import DisplaySingleArticle from "./DisplaySingleArticle";
 import { fetchArticles } from "../state/actions/articleAction";
 import { bindActionCreators } from "redux";
+import SubscriptionForm from "./SubscriptionForm";
 
-const App = props => {
+const DisplayComponents = props => {
   props.fetchArticles();
 
   return (
@@ -13,6 +14,7 @@ const App = props => {
       <h1>The Mars Times</h1>
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
+      {props.showForm && <SubscriptionForm />}
     </>
   );
 };
@@ -26,8 +28,9 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     singleArticle: state.singleArticle,
-    articleList: state.articleList
+    articleList: state.articleList,
+    showForm: state.showForm
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayComponents);

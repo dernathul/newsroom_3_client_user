@@ -20,6 +20,6 @@ describe("User can buy a subscription", () => {
   })
   it ("displays buy subscription form", () => {
 cy.get("button").contains("Buy Subscription").click();
-cy.get("subscription-form")
+cy.get("#subscription").should("exist")
   })
 })

@@ -13,7 +13,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         singleArticle: action.payload,
-        articleList: false
+        articleList: false,
+        showForm: false
       };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
@@ -31,11 +32,18 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         articleList: true
       }
-      case actionTypes.AUTHENTICATE:
-        return {
-          ...state,
-          ...action.payload
-        }
+    case actionTypes.AUTHENTICATE:
+      return {
+        ...state,
+        ...action.payload
+      }
+
+    case actionTypes.SHOW_SUBSCRIPTION_FORM:
+      return {
+        ...state,
+        ...action.payload,
+        articleList: false,
+      }
     default:
       return state;
   }
