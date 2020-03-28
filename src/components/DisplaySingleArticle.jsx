@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BACK_TO_ARTICLES_LIST } from "../state/actions/actionTypes";
-import FreeContent from "./FreeContent";
-import PremiumContent from "./PremiumContent";
+import FullContent from "./FullContent";
+import RestrictedContent from "./RestrictedContent";
 
 const DisplaySingleArticle = props => {
   let articleDetails;
@@ -11,11 +11,11 @@ const DisplaySingleArticle = props => {
 
   let showContent =
     currentUser.role === "subscriber" || article.premium === "false" ? (
-      <FreeContent />
+      <FullContent />
     ) : (
-      <PremiumContent />
+      <RestrictedContent />
     );
-debugger
+
   articleDetails = (
     <>
       <h3 key={article.title}>{article.title}</h3>
