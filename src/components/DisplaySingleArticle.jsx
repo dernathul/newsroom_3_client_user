@@ -1,10 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BACK_TO_ARTICLES_LIST } from "../state/actions/actionTypes";
+import FreeContent from "./FreeContent";
+import PremiumContent from "./PremiumContent";
 
 const DisplaySingleArticle = props => {
   let articleDetails;
   let article = props.singleArticle;
+  switch ((user, status)) {
+    case currentUser.role === "subscriber" || article.premium === "false":
+      return articleDetails;
+    case currentUser.role != "subscriber" && article.premium === "true":
+      return articleDetails;
+  }
   articleDetails = (
     <>
       <h3 key={article.title}>{article.title}</h3>
