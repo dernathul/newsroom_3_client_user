@@ -3,9 +3,9 @@ import {connect} from "react-redux"
 
 const FreeContent = props => {
   let article = props.singleArticle
-  return <div>
-    <p>{article.content}</p>
-  </div>;
+  return <>
+    <p>{article.content}</p>;
+    </>
 };
 
 const mapStateToProps = state => {

@@ -4,9 +4,11 @@ import {connect} from "react-redux"
 const PremiumContent = props => {
   let article = props.singleArticle
 
-  return <div>
-    <p>This is premium article</p>
-  </div>;
+  let shortContent = article.content.substring(0, 20) + '...'
+  return <>
+    <p>{shortContent}</p>
+    <button>Buy Subscription</button>
+  </>;
 };
 
 const mapStateToProps = state => {

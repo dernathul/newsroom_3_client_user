@@ -37,7 +37,7 @@ describe("Visitor can read", () => {
     });
     cy.get("#single-article").should("contain", "Zero infected on Mars");
     cy.get("h5").should("contain", "Mars becomes more and more desirable as Earth is struggling with Corona Virus");
-    cy.get("p").should("contain", "To continue reading please buy a subcription");
+    cy.get("p").should("contain", "This is some content...");
     cy.get("#article-list").should("not.exist");
   });
 });
