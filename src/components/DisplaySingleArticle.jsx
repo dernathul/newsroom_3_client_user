@@ -1,15 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BACK_TO_ARTICLES_LIST } from "../state/actions/actionTypes";
+import FullContent from "./FullContent";
+import RestrictedContent from "./RestrictedContent";
 
 const DisplaySingleArticle = props => {
   let articleDetails;
+  let currentUser = props.currentUser;
   let article = props.singleArticle;
+
+  let showContent =
+    currentUser.role === "subscriber" || article.premium === "false" ? (
+      <FullContent />
+    ) : (
+      <RestrictedContent />
+    );
+
   articleDetails = (
     <>
       <h3 key={article.title}>{article.title}</h3>
       <h5 key={article.snippet}>{article.snippet}</h5>
-      <p key={article.content}>{article.content}</p>
+      {showContent}
       <button
         id="home-button"
         onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
@@ -23,7 +34,8 @@ const DisplaySingleArticle = props => {
 
 const mapStateToProps = state => {
   return {
-    singleArticle: state.singleArticle
+    singleArticle: state.singleArticle,
+    currentUser: state.currentUser
   };
 };
 

@@ -31,7 +31,11 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         articleList: true
       }
-
+      case actionTypes.AUTHENTICATE:
+        return {
+          ...state,
+          ...action.payload
+        }
     default:
       return state;
   }

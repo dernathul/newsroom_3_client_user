@@ -4,19 +4,22 @@
       "id": 1,
       "title": "Zero infected on Mars",
       "snippet": "Mars becomes more and more desirable as Earth is struggling with Corona Virus",
-      "category": "latest_news"
+      "category": "latest_news",
+      "premium": "true"
     },
     {
       "id": 2,
       "title": "Lau new president",
       "snippet": "Mars wants Lau on the front line",
-      "category": "politics"
+      "category": "politics",
+      "premium": "false"
     },
     {
       "id": 3,
       "title": "This is a smashing title",
       "snippet": "And this is an awesome snippet",
-      "category": "sports"
+      "category": "sports",
+      "premium": "false"
     }
   ]
 }
