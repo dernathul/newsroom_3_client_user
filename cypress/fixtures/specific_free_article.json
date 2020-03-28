@@ -4,6 +4,7 @@
     "title": "This is a smashing title",
     "snippet": "And this is an awesome snippet",
     "content": "And this is the best content you ever read",
-    "category": "sports"
+    "category": "sports",
+    "premium": "false"
   }
 }
