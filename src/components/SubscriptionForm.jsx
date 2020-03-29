@@ -5,13 +5,18 @@ import {
   CardCVCElement,
   injectStripe
 } from "react-stripe-elements";
+import axios from "axios";
 
 const SubscriptionForm = props => {
     const confirmSubscription = async (event) => {
       event.preventDefault()
       let stripeResponse = await props.stripe.createToken()
       let token = stripeResponse.token.id 
-      debugger;
+      let paymentStatus = await axios.post("http://localhost:3000/api/v1/subscriptions", {stripeToken: token})
+      if (paymentStatus.status === "paid") {
+        debugger
+      }
+      
     }
     // "tok_1GS0QpETcp1r6Abvv140du9f"
   return (
