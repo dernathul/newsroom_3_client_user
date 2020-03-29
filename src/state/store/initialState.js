@@ -5,7 +5,8 @@ const initialState = {
   activeItem: 'latest_news',
   selectedCategory: '',
   currentUser: {},
-  showForm: false
+  showForm: false,
+  flashMessage: ""
 };
 
 export default initialState;

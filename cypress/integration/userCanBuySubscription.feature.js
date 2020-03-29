@@ -50,6 +50,7 @@ describe("User can buy a subscription", () => {
           .type("123", { delay: 10 });
       });
       cy.get('button').contains('Confirm Subscription').click()
+      
     });
   });
 });

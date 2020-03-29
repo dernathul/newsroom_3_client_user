@@ -14,8 +14,10 @@ const SubscriptionForm = props => {
       let token = stripeResponse.token.id 
       let paymentStatus = await axios.post("http://localhost:3000/api/v1/subscriptions", {stripeToken: token})
       if (paymentStatus.data.status === "paid") {
-        debugger
+        props.dispatch({type: FLASH_MESSAGE, payload: {flashMessage: "Thank you for your purchase! Now you can read all our content."}})
+        props.dispatch({type: BACK_TO_ARTICLES_LIST})
       }
+
       
     }
   
