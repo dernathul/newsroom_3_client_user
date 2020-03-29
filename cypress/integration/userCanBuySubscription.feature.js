@@ -24,6 +24,12 @@ describe("User can buy a subscription", () => {
   });
 
   it("by clickin Buy Subscription", () => {
+    cy.window().then(window => {
+      window.store.dispatch({
+        type: "AUTHENTICATE",
+        payload: { currentUser: { email: "karlmarx@mail.com", role: "user" } }
+      });
+    });
     cy.get("button")
       .contains("Buy Subscription")
       .click();
