@@ -8,7 +8,7 @@ import {
 
 const SubscriptionForm = props => {
   return (
-    <form id="subscription">
+    <form id="subscription-form">
       <h1>"I'm the subscription form"</h1>
       <label>Card Number</label>
       <CardNumberElement />
