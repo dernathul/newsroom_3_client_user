@@ -1,7 +1,6 @@
 import React from "react";
 import {
   CardNumberElement,
-  //   CardHolderElement,
   CardExpiryElement,
   CardCVCElement,
   injectStripe
@@ -13,8 +12,6 @@ const SubscriptionForm = props => {
       <h1>"I'm the subscription form"</h1>
       <label>Card Number</label>
       <CardNumberElement />
-      {/* <label>Card Holder Name</label>
-      <CardHolderElement /> */}
       <label>Card Expiration Date</label>
       <CardExpiryElement />
       <label>Card CVC</label>

@@ -18,8 +18,18 @@ describe("User can buy a subscription", () => {
 
     })
   })
-  it ("displays buy subscription form", () => {
-cy.get("button").contains("Buy Subscription").click();
-cy.get("#subscription").should("exist")
+  it("displays buy subscription form", () => {
+    cy.get("button").contains("Buy Subscription").click();
+    cy.get("#subscription").should("be.visible")
+      .within(() => {
+        cy.get('iframe[name^="__privateStripeFrame5"]')
+          .then($iframe => {
+            const $body = $iframe.contents().find("body")
+            cy.wrap($body)
+              .find('input[name="cardnumber"]')
+              .type("4242424242424242")
+          })
+
+      })
   })
 })
