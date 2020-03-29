@@ -7,6 +7,9 @@ import {
 } from "react-stripe-elements";
 
 const SubscriptionForm = props => {
+    const confirmSubscription = (event) => {
+
+    }
   return (
     <form id="subscription-form">
       <h1>"I'm the subscription form"</h1>
@@ -16,7 +19,9 @@ const SubscriptionForm = props => {
       <CardExpiryElement />
       <label>Card CVC</label>
       <CardCVCElement />
+      <button onClick={(event)=> confirmSubscription(event)}>Confirm Subscription</button>
     </form>
+    
   );
 };
 

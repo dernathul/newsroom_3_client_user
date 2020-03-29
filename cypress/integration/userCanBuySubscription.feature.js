@@ -30,6 +30,21 @@ describe("User can buy a subscription", () => {
           .find('input[name="cardnumber"]')
           .type("4242424242424242", { delay: 10 });
       });
+
+      cy.get('iframe[name^="__privateStripeFrame6"]').then($iframe => {
+        const $body = $iframe.contents().find("body");
+        cy.wrap($body)
+          .find('input[name="exp-date"]')
+          .type("1220", { delay: 10 });
+      });
+
+      cy.get('iframe[name^="__privateStripeFrame7"]').then($iframe => {
+        const $body = $iframe.contents().find("body");
+        cy.wrap($body)
+          .find('input[name="cvc"]')
+          .type("123", { delay: 10 });
+      });
+      cy.get('button').contains('Confirm Subscription').click()
     });
   });
 });
