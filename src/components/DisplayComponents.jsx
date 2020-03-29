@@ -5,6 +5,7 @@ import DisplaySingleArticle from "./DisplaySingleArticle";
 import { fetchArticles } from "../state/actions/articleAction";
 import { bindActionCreators } from "redux";
 import SubscriptionForm from "./SubscriptionForm";
+import { Elements } from "react-stripe-elements";
 
 const DisplayComponents = props => {
   props.fetchArticles();
@@ -14,7 +15,7 @@ const DisplayComponents = props => {
       <h1>The Mars Times</h1>
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
-      {props.showForm && <SubscriptionForm />}
+      {props.showForm && <Elements><SubscriptionForm /></Elements>}
     </>
   );
 };
