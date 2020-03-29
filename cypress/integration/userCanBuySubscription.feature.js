@@ -50,7 +50,18 @@ describe("User can buy a subscription", () => {
           .type("123", { delay: 10 });
       });
       cy.get('button').contains('Confirm Subscription').click()
-      
+      cy.get('#flash-message').should('contain', 'Thank you for your purchase!')
+      cy.get("#article-list").within(() => {
+        cy.get("#article-1").within(() => {
+          cy.get("#open-article").click();
+        });
+      });
+      cy.get("#single-article").should("contain", "Zero infected on Mars");
+      cy.get("h5").should("contain", "Mars becomes more and more desirable as Earth is struggling with Corona Virus"
+      );
+      cy.get("p").should("contain", "This is some content repeated -This is some content repeated -This is some content repeated. And if you have read this far there is some more content coming your way. And if you dont want to continue reading you should have not bought that subscription",
+      );
+     
     });
   });
 });
