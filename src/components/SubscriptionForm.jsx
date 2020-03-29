@@ -7,9 +7,13 @@ import {
 } from "react-stripe-elements";
 
 const SubscriptionForm = props => {
-    const confirmSubscription = (event) => {
-
+    const confirmSubscription = async (event) => {
+      event.preventDefault()
+      let stripeResponse = await props.stripe.createToken()
+      let token = stripeResponse.token.id 
+      debugger;
     }
+    // "tok_1GS0QpETcp1r6Abvv140du9f"
   return (
     <form id="subscription-form">
       <h1>"I'm the subscription form"</h1>
