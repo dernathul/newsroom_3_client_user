@@ -31,7 +31,8 @@ const mapStateToProps = state => {
   return {
     singleArticle: state.singleArticle,
     articleList: state.articleList,
-    showForm: state.showForm
+    showForm: state.showForm,
+    flashMessage: state.flashMessage
   };
 };
 

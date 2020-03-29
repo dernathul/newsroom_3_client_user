@@ -6,16 +6,19 @@ import {
   injectStripe
 } from "react-stripe-elements";
 import axios from "axios";
+import {useDispatch} from 'react-redux'
+import {FLASH_MESSAGE, BACK_TO_ARTICLES_LIST } from '../state/actions/actionTypes'
 
 const SubscriptionForm = props => {
+  const dispatch = useDispatch()
     const confirmSubscription = async (event) => {
       event.preventDefault()
       let stripeResponse = await props.stripe.createToken()
       let token = stripeResponse.token.id 
       let paymentStatus = await axios.post("http://localhost:3000/api/v1/subscriptions", {stripeToken: token})
       if (paymentStatus.data.status === "paid") {
-        props.dispatch({type: FLASH_MESSAGE, payload: {flashMessage: "Thank you for your purchase! Now you can read all our content."}})
-        props.dispatch({type: BACK_TO_ARTICLES_LIST})
+        dispatch({type: FLASH_MESSAGE, payload: {flashMessage: "Thank you for your purchase! Now you can read all our content."}})
+        dispatch({type: BACK_TO_ARTICLES_LIST})
       }
 
       
