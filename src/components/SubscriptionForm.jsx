@@ -13,12 +13,12 @@ const SubscriptionForm = props => {
       let stripeResponse = await props.stripe.createToken()
       let token = stripeResponse.token.id 
       let paymentStatus = await axios.post("http://localhost:3000/api/v1/subscriptions", {stripeToken: token})
-      if (paymentStatus.status === "paid") {
+      if (paymentStatus.data.status === "paid") {
         debugger
       }
       
     }
-    // "tok_1GS0QpETcp1r6Abvv140du9f"
+  
   return (
     <form id="subscription-form">
       <h1>"I'm the subscription form"</h1>
