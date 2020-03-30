@@ -4,7 +4,9 @@ const initialState = {
   singleArticle: undefined,
   activeItem: 'latest_news',
   selectedCategory: '',
-  currentUser: {}
+  currentUser: {},
+  showForm: false,
+  flashMessage: ""
 };
 
 export default initialState;

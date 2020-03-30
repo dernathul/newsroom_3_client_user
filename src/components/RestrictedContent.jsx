@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import {SHOW_SUBSCRIPTION_FORM} from "../state/actions/actionTypes"
 
 const RestrictedContent = props => {
   let article = props.singleArticle;
@@ -8,8 +9,7 @@ const RestrictedContent = props => {
   return (
     <>
       <p>{shortContent}</p>
-      <button>Buy Subscription</button>
-    </>
+      <button onClick = {() => props.dispatch({type: SHOW_SUBSCRIPTION_FORM, payload: {showForm: true}})} >Buy Subscription</button></>
   );
 };
 

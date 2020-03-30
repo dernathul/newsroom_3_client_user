@@ -3,17 +3,17 @@ describe("Visitor can read", () => {
     cy.server();
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/v1/articles",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles",
       response: "fixture:articles.json"
     });
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/v1/articles/1",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles/1",
       response: "fixture:specific_premium_article.json"
     });
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/v1/articles/3",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles/3",
       response: "fixture:specific_free_article.json"
     });
     cy.visit("/");

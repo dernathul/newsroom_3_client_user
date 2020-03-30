@@ -13,14 +13,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         singleArticle: action.payload,
-        articleList: false
+        articleList: false,
+        showForm: false,
+        flashMessage: false
       };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
       return {
         ...state,
         singleArticle: undefined,
-        articleList: true
+        articleList: true,
       };
 
     case actionTypes.SELECT_CATEGORY:
@@ -29,13 +31,29 @@ const rootReducer = (state = initialState, action) => {
         selectedCategory: action.payload.selectedCategory,
         activeItem: action.payload,
         singleArticle: undefined,
-        articleList: true
+        articleList: true,
+        flashMessage: false
       }
-      case actionTypes.AUTHENTICATE:
+    case actionTypes.AUTHENTICATE:
+      return {
+        ...state,
+        ...action.payload
+      }
+
+    case actionTypes.SHOW_SUBSCRIPTION_FORM:
+      return {
+        ...state,
+        ...action.payload,
+        articleList: false,
+      }
+
+      case actionTypes.FLASH_MESSAGE:
         return {
           ...state,
-          ...action.payload
+          ...action.payload,
         }
+
+
     default:
       return state;
   }
