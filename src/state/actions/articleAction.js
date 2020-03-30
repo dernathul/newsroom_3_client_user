@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_ARTICLE_DATA, GET_SINGLE_ARTICLE_DATA } from "./actionTypes";
 
-const apiURL = "http://localhost:3000/api/v1/articles";
+const apiURL = "https://newsroom3api.herokuapp.com/api/v1/articles";
 
 const fetchArticles = () => {
   return async dispatch => {
