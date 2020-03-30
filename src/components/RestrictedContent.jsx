@@ -9,8 +9,7 @@ const RestrictedContent = props => {
   return (
     <>
       <p>{shortContent}</p>
-      <button onClick = {() => props.dispatch({type: SHOW_SUBSCRIPTION_FORM, payload: {showForm: true}})} >Buy Subscription</button>
-    </>
+      <button onClick = {() => props.dispatch({type: SHOW_SUBSCRIPTION_FORM, payload: {showForm: true}})} >Buy Subscription</button></>
   );
 };
 
