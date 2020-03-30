@@ -17,15 +17,15 @@ window.store = store;
 ReactDOM.render(
   <Provider store={store}>
     <StripeProvider apiKey='pk_test_80OAV5NYF42UKxVAzu8MRvzI00eg82xAQ3'>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </StripeProvider>
   </Provider>,
   document.getElementById("root")
 );
 serviceWorker.unregister();
 
-if (window.Cypress){
+if (window.Cypress) {
   window.store = store
 }

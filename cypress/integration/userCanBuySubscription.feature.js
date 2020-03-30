@@ -59,11 +59,12 @@ describe("User can buy a subscription", () => {
       cy.get("button")
         .contains("Confirm Subscription")
         .click();
+      cy.wait(2000);
 
-      // cy.get("#flash-message").should(
-      //   "contain",
-      //   "Thank you for your purchase!"
-      // );
+      cy.get("#flash-message").should(
+        "contain",
+        "Thank you for your purchase!"
+      );
       // cy.get("#article-list").within(() => {
       //   cy.get("#article-1").within(() => {
       //     cy.get("#open-article").click();
