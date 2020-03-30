@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import { FLASH_MESSAGE, BACK_TO_ARTICLES_LIST } from '../state/actions/actionTypes';
 import { useDispatch, useSelector } from "react-redux";
+import { Modal } from 'semantic-ui-react'
 
 const SubscriptionForm = props => {
   const dispatch = useDispatch()
@@ -30,16 +31,21 @@ const SubscriptionForm = props => {
   }
 
   return (
-    <form id="subscription-form">
-      <h1>"I'm the subscription form"</h1>
-      <label>Card Number</label>
-      <CardNumberElement />
-      <label>Card Expiration Date</label>
-      <CardExpiryElement />
-      <label>Card CVC</label>
-      <CardCVCElement />
-      <button onClick={(event) => confirmSubscription(event)}>Confirm Subscription</button>
-    </form>
+    <Modal open={true}>
+      <form id="subscription-form">
+        <h1>Subscribe to become Premium Member!</h1>
+        <h3>Read all our content with a yearly subscription for 499 kr</h3>
+        <label>Card Number</label>
+        <CardNumberElement />
+        <label>Card Expiration Date</label>
+        <CardExpiryElement />
+        <label>Card CVC</label>
+        <CardCVCElement />
+        <button onClick={event => confirmSubscription(event)}>
+          Purchase Subscription
+        </button>
+      </form>
+    </Modal>
   );
 };
 
