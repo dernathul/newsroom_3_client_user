@@ -58,8 +58,14 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.SHOW_LOGIN_FORM:
       return {
         ...state,
+        ...action.payload
+      };
+
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
         ...action.payload,
-       
+        showLoginForm: false
       };
 
     default:

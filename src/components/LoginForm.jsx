@@ -2,6 +2,7 @@ import React from "react";
 import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
 import { connect } from "react-redux"
+import { LOGOUT } from "../state/actions/actionTypes";
 
 const LoginForm = props => {
   const onLogin = async e => {
@@ -23,8 +24,8 @@ const LoginForm = props => {
   const onLogout = () => {
     auth.signOut()
     props.dispatch({
-      type: AUTHENTICATE,
-      payload: { authenticated: false }
+      type: LOGOUT,
+      payload: { authenticated: false, currentUser: {} }
     })
   }
 
@@ -33,7 +34,7 @@ const LoginForm = props => {
     login = (
       <>
           <p id="logged-in-message">Hi! {props.currentUser.email}</p>
-          <button onClick={onLogout} >log out</button>
+          {onLogout}
       </>
     )
   } else {
