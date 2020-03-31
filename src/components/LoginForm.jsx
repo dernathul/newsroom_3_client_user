@@ -1,7 +1,7 @@
 import React from "react";
 import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 
 const LoginForm = props => {
   const onLogin = async e => {
@@ -13,7 +13,7 @@ const LoginForm = props => {
       );
       props.dispatch({
         type: AUTHENTICATE,
-        payload: {authenticated: true, currentUser: response.data.email}
+        payload: { authenticated: true, currentUser: response.data.email }
       })
     } catch (error) {
       console.log(error);
@@ -23,26 +23,26 @@ const LoginForm = props => {
   if (props.authenticated) {
     login = (
       <>
-      <p>Welcome {props.currentUser}</p>
+          <p id="logged-in-message">Welcome {props.currentUser}</p>
       </>
     )
   } else {
     login = (
-      <form id = "login-form" onSubmit={onLogin}>
-      <input id = "email" name="email" placeholder="Email" />
-      <input id = "password" name="password" type="password" placeholder="Password" />
-      <button id = "submit-button" type="submit">Sign in </button>
-    </form>
+      <form id="login-form" onSubmit={onLogin}>
+        <input id="email" name="email" placeholder="Email" />
+        <input id="password" name="password" type="password" placeholder="Password" />
+        <button id="submit-button" type="submit">Sign in </button>
+      </form>
     )
   }
 
-return <div>{login}</div>
+  return <div>{login}</div>
 };
 
 const mapStateToProps = state => {
   return {
-  authenticated: state.authenticated,
-  currentUser: state.currentUser
+    authenticated: state.authenticated,
+    currentUser: state.currentUser
   }
 }
 

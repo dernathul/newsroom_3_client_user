@@ -1,28 +1,25 @@
 describe("user can login", () => {
-  beforeEach(() => {
+  before(() => {
     cy.server();
     cy.route({
       method: "POST",
       url: "https://newsroom3api.herokuapp.com/api/v1/auth/sign_in",
-      response: "fixture:login.json"
+      response: "fixture:login_reg_user.json"
     });
     cy.route({
       method: "GET",
-      url: "https://newsroom3api.herokuapp.com/api/v1/auth/sign_in",
-      response: "fixture:login.json"
+      url: "https://newsroom3api.herokuapp.com/api/v1/auth/**",
+      response: "fixture:login_reg_user.json"
     });
     cy.visit("/");
   });
   it("user can succesfully login", () => {
     cy.get("#login-button").click();
     cy.get("#login-form").within(() => {
-      cy.get("#email").type("karlmarx@mail.com");
+      cy.get("#email").type("user@mail.com");
       cy.get("#password").type("password");
       cy.get("#submit-button").click();
     });
-    cy.get("#logged_in-message").should(
-      "contain",
-      "Welcome back karlmarx@mail.com"
-    );
+    cy.get("#logged-in-message").should("contain", "Welcome user@mail.com")
   });
 });
