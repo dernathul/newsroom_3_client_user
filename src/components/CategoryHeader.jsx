@@ -77,7 +77,7 @@ const CategoryHeader = props => {
         >
           Culture
         </Menu.Item>
-        <Menu.Item
+        <Menu.Item id = "login-button"
         onClick = {() => props.dispatch({type: SHOW_LOGIN_FORM, payload: {showLoginForm: true}})} 
         >
           Login

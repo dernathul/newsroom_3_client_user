@@ -28,10 +28,10 @@ const LoginForm = props => {
     )
   } else {
     login = (
-      <form onSubmit={onLogin}>
-      <input name="email" placeholder="Email" />
-      <input name="password" type="password" placeholder="Password" />
-      <button type="submit">Sign in </button>
+      <form id = "login-form" onSubmit={onLogin}>
+      <input id = "email" name="email" placeholder="Email" />
+      <input id = "password" name="password" type="password" placeholder="Password" />
+      <button id = "submit-button" type="submit">Sign in </button>
     </form>
     )
   }
