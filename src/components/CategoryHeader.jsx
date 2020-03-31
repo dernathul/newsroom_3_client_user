@@ -3,7 +3,9 @@ import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { SELECT_CATEGORY } from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
-import {SHOW_LOGIN_FORM} from "../state/actions/actionTypes"
+import {SHOW_LOGIN_FORM} from "../state/actions/actionTypes";
+import {AUTHENTICATE} from "../state/actions/actionTypes"
+
 
 const CategoryHeader = props => {
   const handleItemClick = event => {
@@ -15,6 +17,28 @@ const CategoryHeader = props => {
       }
     });
   };
+
+  let switchLoginAndLogOut =
+    currentUser.role === "reg_user" || currentUser.role === "subscriber" ?  (
+      <>
+      <button
+        onClick={() =>
+          props.dispatch({
+            type: AUTHENTICATE,
+            payload: { authenticated: false }
+          })
+        }
+      >
+        New Log out
+      </button>
+      </>
+    ) : (
+      <>
+      <button id = "login-button"
+      onClick = {() => props.dispatch({type: SHOW_LOGIN_FORM, payload: {showLoginForm: true}})}>New Login</button>
+    </>
+    );
+
   return (
     
     <Segment inverted>
@@ -78,9 +102,8 @@ const CategoryHeader = props => {
           Culture
         </Menu.Item>
         <Menu.Item id = "login-button"
-        onClick = {() => props.dispatch({type: SHOW_LOGIN_FORM, payload: {showLoginForm: true}})} 
         >
-          Login
+          {switchLoginAndLogOut}
           </Menu.Item>
       </Menu>
       

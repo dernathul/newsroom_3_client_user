@@ -19,11 +19,21 @@ const LoginForm = props => {
       console.log(error);
     }
   };
+
+  const onLogout = () => {
+    auth.signOut()
+    props.dispatch({
+      type: AUTHENTICATE,
+      payload: { authenticated: false }
+    })
+  }
+
   let login
   if (props.authenticated) {
     login = (
       <>
           <p id="logged-in-message">Hi! {props.currentUser.email}</p>
+          <button onClick={onLogout} >log out</button>
       </>
     )
   } else {
