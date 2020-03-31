@@ -1,8 +1,8 @@
 import React from "react";
 import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
-import { connect } from "react-redux"
-import { LOGOUT } from "../state/actions/actionTypes";
+import { connect } from "react-redux";
+
 
 const LoginForm = props => {
   const onLogin = async e => {
@@ -14,47 +14,52 @@ const LoginForm = props => {
       );
       props.dispatch({
         type: AUTHENTICATE,
-        payload: { currentUser: { email: response.data.email, role: response.data.role } }
-      })
+        payload: {
+          currentUser: { email: response.data.email, role: response.data.role }
+        }
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
   const onLogout = () => {
-    auth.signOut()
-    props.dispatch({
-      type: LOGOUT,
-      payload: { authenticated: false, currentUser: {} }
-    })
-  }
+    auth.signOut();
+  };
 
-  let login
+  let login;
   if (props.authenticated) {
     login = (
       <>
-          <p id="logged-in-message">Hi! {props.currentUser.email}</p>
-          {onLogout}
+        <p id="logged-in-message">Hi! {props.currentUser.email}</p>
+        {onLogout}
       </>
-    )
+    );
   } else {
     login = (
       <form id="login-form" onSubmit={onLogin}>
         <input id="email" name="email" placeholder="Email" />
-        <input id="password" name="password" type="password" placeholder="Password" />
-        <button id="submit-button" type="submit">Sign in </button>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
+        <button id="submit-button" type="submit">
+          Sign in{" "}
+        </button>
       </form>
-    )
+    );
   }
 
-  return <div>{login}</div>
+  return <div>{login}</div>;
 };
 
 const mapStateToProps = state => {
   return {
     authenticated: state.authenticated,
     currentUser: state.currentUser
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(LoginForm);

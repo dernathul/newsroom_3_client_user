@@ -35,7 +35,7 @@ describe("regular user can login and can't view premium content", () => {
   });
 });
 
-describe("premium user can login and can view premium content", () => {
+describe("premium user can login, view premium content and logout", () => {
   before(() => {
     cy.server();
     cy.route({
@@ -72,5 +72,11 @@ describe("premium user can login and can view premium content", () => {
       "contain",
       "This is some content repeated -This is some content repeated -This is some content repeated. And if you have read this far there is some more content coming your way. And if you dont want to continue reading you should have not bought that subscription"
     );
+  });
+
+  it("user can succesfully logout", () => {
+    cy.get("#login-button").should("not.exist");
+    cy.get("#logout-button").click();
+    cy.get("#login-button").should("exist");
   });
 });
