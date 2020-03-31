@@ -13,7 +13,7 @@ const DisplayComponents = props => {
 
   return (
     <>
-      <LoginForm />
+       {props.showLoginForm && <LoginForm />}
       <h1>The Mars Times</h1>
       {props.flashMessage.length > 0 && <h2 id="flash-message">{props.flashMessage}</h2>}
       {props.articleList && <DisplayArticles />}
@@ -34,7 +34,8 @@ const mapStateToProps = state => {
     singleArticle: state.singleArticle,
     articleList: state.articleList,
     showForm: state.showForm,
-    flashMessage: state.flashMessage
+    flashMessage: state.flashMessage,
+    showLoginForm: state.showLoginForm
   };
 };
 

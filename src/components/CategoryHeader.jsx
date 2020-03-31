@@ -3,6 +3,7 @@ import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { SELECT_CATEGORY } from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
+import {SHOW_LOGIN_FORM} from "../state/actions/actionTypes"
 
 const CategoryHeader = props => {
   const handleItemClick = event => {
@@ -15,6 +16,7 @@ const CategoryHeader = props => {
     });
   };
   return (
+    
     <Segment inverted>
       <Menu id="category-header" inverted pointing secondary>
         <Menu.Item
@@ -75,8 +77,19 @@ const CategoryHeader = props => {
         >
           Culture
         </Menu.Item>
+        <Menu.Item
+        onClick = {() => props.dispatch({type: SHOW_LOGIN_FORM, payload: {showLoginForm: true}})} 
+        >
+          Login
+          </Menu.Item>
       </Menu>
+      
+     
+    
     </Segment>
+   
+
+
   );
 };
 

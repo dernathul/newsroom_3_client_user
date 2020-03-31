@@ -22,7 +22,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         singleArticle: undefined,
-        articleList: true,
+        articleList: true
       };
 
     case actionTypes.SELECT_CATEGORY:
@@ -33,26 +33,32 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         articleList: true,
         flashMessage: false
-      }
+      };
     case actionTypes.AUTHENTICATE:
       return {
         ...state,
         ...action.payload
-      }
+      };
 
     case actionTypes.SHOW_SUBSCRIPTION_FORM:
       return {
         ...state,
         ...action.payload,
-        articleList: false,
-      }
+        articleList: false
+      };
 
-      case actionTypes.FLASH_MESSAGE:
-        return {
-          ...state,
-          ...action.payload,
-        }
+    case actionTypes.FLASH_MESSAGE:
+      return {
+        ...state,
+        ...action.payload
+      };
 
+    case actionTypes.SHOW_LOGIN_FORM:
+      return {
+        ...state,
+        ...action.payload,
+       
+      };
 
     default:
       return state;
