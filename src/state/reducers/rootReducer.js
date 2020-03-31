@@ -38,7 +38,8 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.AUTHENTICATE:
       return {
         ...state,
-        ...action.payload
+        authenticated: true,
+        currentUser: action.payload.currentUser
       };
 
     case actionTypes.SHOW_SUBSCRIPTION_FORM:

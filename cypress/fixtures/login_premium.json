@@ -1,0 +1,11 @@
+{
+    "data": {
+        "id": 1,
+        "email": "karlmarx@mail.com",
+        "provider": "email",
+        "uid": "karlmarx@mail.com",
+        "role": "subscriber",
+        "allow_password_change": false
+
+    }
+}

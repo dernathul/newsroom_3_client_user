@@ -13,7 +13,7 @@ const LoginForm = props => {
       );
       props.dispatch({
         type: AUTHENTICATE,
-        payload: { authenticated: true, currentUser: response.data.email }
+        payload: { currentUser: { email: response.data.email, role: response.data.role } }
       })
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ const LoginForm = props => {
   if (props.authenticated) {
     login = (
       <>
-          <p id="logged-in-message">Welcome {props.currentUser}</p>
+          <p id="logged-in-message">Hi! {props.currentUser.email}</p>
       </>
     )
   } else {
