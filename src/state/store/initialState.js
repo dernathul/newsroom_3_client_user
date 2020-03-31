@@ -8,7 +8,8 @@ const initialState = {
   showForm: false,
   flashMessage: "",
   authenticated: false,
-  showLoginForm: false
+  showLoginForm: false,
+  welcomeMessage: ""
 };
 
 export default initialState;

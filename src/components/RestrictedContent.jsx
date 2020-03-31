@@ -8,7 +8,7 @@ const RestrictedContent = props => {
   let shortContent = article.content.substring(0, 20) + "...";
   return (
     <>
-      <p>{shortContent}</p>
+      <p id="content">{shortContent}</p>
       <button onClick = {() => props.dispatch({type: SHOW_SUBSCRIPTION_FORM, payload: {showForm: true}})} >Buy Subscription</button></>
   );
 };

@@ -15,7 +15,8 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: action.payload,
         articleList: false,
         showForm: false,
-        flashMessage: false
+        flashMessage: false,
+        welcomeMessage: false
       };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
