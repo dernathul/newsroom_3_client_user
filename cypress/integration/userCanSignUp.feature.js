@@ -6,6 +6,12 @@ describe("user can Sign up for an account", () => {
       url: "https://newsroom3api.herokuapp.com/api/v1/articles",
       response: "fixture:articles.json"
     });
+
+    cy.route({
+      method: "POST",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles",
+      response: "fixture:signUpUserWithGoodCredentials.json"
+    });
     cy.visit("/");
   });
 
@@ -13,11 +19,11 @@ describe("user can Sign up for an account", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
     cy.get("#sign-up-form").within(() => {
-      cy.get("#email").type("register@mail.com");
+      cy.get("#email").type("john-doe@gmail.com");
       cy.get("#password").type("password");
-      cy.get("#confirm-password").type("password");
+      cy.get("#passwordconfirmation").type("confirm password");
       cy.get("#signup-button").click();
     });
-    cy.get("#singed-up-message").should("contain", "Account created!");
+    cy.get("#signed-up-message").should("contain", "Account created!");
   });
 });
