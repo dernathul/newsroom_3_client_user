@@ -15,3 +15,30 @@
     margin-left: 31cm;
     font-size: x-large;
 }
+
+.ui.placeholder {
+   /* margin-left: 10rem; */
+   /* width: 130px;
+   height: 100px; */
+}
+
+/* #title {
+    margin-left: 1rem;
+
+}
+
+#snippet {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+#open-article {
+  margin-left: 1rem;
+  border-width: 20px;
+} */
+
+#card {
+ 
+    display: inline-block
+}
+

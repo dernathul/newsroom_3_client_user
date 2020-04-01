@@ -18,16 +18,36 @@ const DisplayArticles = props => {
 
   let articleDisplay = articles.map(article => {
     return (
-      <div id={`article-${article.id}`} key={article.id}>
-        <h4 id="title">{article.title}</h4>
-        <h5 id="snippet">{article.snippet}</h5>
-        <button
-          id="open-article"
-          onClick={() => showArticle(article.id)}
-          key={article.id}
-        >
-          Read more
-        </button>
+      <div className="ui main container">
+        <div class="ui  four column grid">
+          <div class="eight wide column">
+            <div id="card" class="ui centered card">
+              <div class="ui placeholder">
+                <div class="square image"></div>
+              </div>
+              <div class="content">
+                <div id={`article-${article.id}`} key={article.id}>
+                  <h3 class="header" id="title">
+                    {article.title}
+                  </h3>
+                  <div class="meta">
+                    <span class="price" id="snippet">
+                      {article.snippet}
+                    </span>
+                  </div>
+                  <button
+                    class="ui primary button"
+                    id="open-article"
+                    onClick={() => showArticle(article.id)}
+                    key={article.id}
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   });
