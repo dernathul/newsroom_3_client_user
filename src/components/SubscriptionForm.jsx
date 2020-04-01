@@ -30,15 +30,20 @@ const SubscriptionForm = props => {
         type: FLASH_MESSAGE, payload: {
           flashMessage: "Thank you for your purchase!",
           showForm: false,
-          currentUser: { email: "karlmarx@mail.com", role: "subscriber" }
+          currentUser: { email: currentUser.email, role: "subscriber" }
         }
       })
     }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
     } 
-    catch (error) {
-      debugger
-   console.log(error)
+    catch (response) {
+      dispatch({
+        type: FLASH_MESSAGE,
+        payload: {
+          flashMessage: response.data.error_message,
+          showForm: false,
+        }
+      });
     }
   }
 
