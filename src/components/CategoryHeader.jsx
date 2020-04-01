@@ -61,7 +61,7 @@ const CategoryHeader = props => {
       onClick={() =>
         props.dispatch({
           type: SHOW_SIGN_UP_FORM,
-          payload: { SignUpForm: true }
+          payload: { showSignUpForm: true }
         })
       }
     >

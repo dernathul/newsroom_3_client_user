@@ -10,7 +10,7 @@ const initialState = {
   authenticated: false,
   showLoginForm: false,
   welcomeMessage: "",
-  SignUpForm: false
+  showLoginUpForm: false
 };
 
 export default initialState;
