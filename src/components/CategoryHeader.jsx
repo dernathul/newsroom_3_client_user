@@ -1,7 +1,11 @@
 import React from "react";
 import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { SELECT_CATEGORY } from "../state/actions/actionTypes";
+import {
+  SELECT_CATEGORY,
+  LOGOUT,
+  SHOW_LOGIN_FORM
+} from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
 
 const CategoryHeader = props => {
@@ -14,6 +18,41 @@ const CategoryHeader = props => {
       }
     });
   };
+  let currentUser = props.currentUser;
+
+  let switchLoginAndLogOut =
+    currentUser.role === "reg_user" || currentUser.role === "subscriber" ? (
+      <>
+        <button
+          class="ui secondary button"
+          id="logout-button"
+          onClick={() =>
+            props.dispatch({
+              type: LOGOUT,
+              payload: { authenticated: false, currentUser: {} }
+            })
+          }
+        >
+          Log out
+        </button>
+      </>
+    ) : (
+      <>
+        <button
+          class="ui secondary button"
+          id="login-button"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_LOGIN_FORM,
+              payload: { showLoginForm: true }
+            })
+          }
+        >
+          Login
+        </button>
+      </>
+    );
+
   return (
     <Segment inverted>
       <Menu id="category-header" inverted pointing secondary>
@@ -75,9 +114,16 @@ const CategoryHeader = props => {
         >
           Culture
         </Menu.Item>
+        {switchLoginAndLogOut}
       </Menu>
     </Segment>
   );
 };
 
-export default connect()(CategoryHeader);
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(CategoryHeader);

@@ -5,7 +5,7 @@ const FullContent = props => {
   let article = props.singleArticle;
   return (
     <>
-      <p>{article.content}</p>;
+      <p id="content">{article.content}</p>;
     </>
   );
 };

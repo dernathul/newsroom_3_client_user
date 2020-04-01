@@ -6,12 +6,14 @@ import { fetchArticles } from "../state/actions/articleAction";
 import { bindActionCreators } from "redux";
 import SubscriptionForm from "./SubscriptionForm";
 import { Elements } from "react-stripe-elements";
+import LoginForm from "../components/LoginForm"
 
 const DisplayComponents = props => {
   props.fetchArticles();
 
   return (
     <>
+       {props.showLoginForm && <LoginForm />}
       <h1>The Mars Times</h1>
       {props.flashMessage.length > 0 && <h2 id="flash-message">{props.flashMessage}</h2>}
       {props.articleList && <DisplayArticles />}
@@ -32,7 +34,8 @@ const mapStateToProps = state => {
     singleArticle: state.singleArticle,
     articleList: state.articleList,
     showForm: state.showForm,
-    flashMessage: state.flashMessage
+    flashMessage: state.flashMessage,
+    showLoginForm: state.showLoginForm
   };
 };
 

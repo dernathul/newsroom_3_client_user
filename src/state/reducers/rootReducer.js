@@ -15,14 +15,15 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: action.payload,
         articleList: false,
         showForm: false,
-        flashMessage: false
+        flashMessage: false,
+        welcomeMessage: false
       };
 
     case actionTypes.BACK_TO_ARTICLES_LIST:
       return {
         ...state,
         singleArticle: undefined,
-        articleList: true,
+        articleList: true
       };
 
     case actionTypes.SELECT_CATEGORY:
@@ -33,26 +34,39 @@ const rootReducer = (state = initialState, action) => {
         singleArticle: undefined,
         articleList: true,
         flashMessage: false
-      }
+      };
     case actionTypes.AUTHENTICATE:
       return {
         ...state,
-        ...action.payload
-      }
+        authenticated: true,
+        currentUser: action.payload.currentUser
+      };
 
     case actionTypes.SHOW_SUBSCRIPTION_FORM:
       return {
         ...state,
         ...action.payload,
-        articleList: false,
-      }
+        articleList: false
+      };
 
-      case actionTypes.FLASH_MESSAGE:
-        return {
-          ...state,
-          ...action.payload,
-        }
+    case actionTypes.FLASH_MESSAGE:
+      return {
+        ...state,
+        ...action.payload
+      };
 
+    case actionTypes.SHOW_LOGIN_FORM:
+      return {
+        ...state,
+        ...action.payload
+      };
+
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        ...action.payload,
+        showLoginForm: false
+      };
 
     default:
       return state;

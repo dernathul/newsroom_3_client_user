@@ -1,0 +1,17 @@
+.ui.secondary.button {
+    margin-left: 21cm;
+    font-size: large;
+}
+
+#login-form {
+    margin-left: 27cm;
+}
+
+#submit-button {
+    background-color: cadetblue;
+}
+
+#logged-in-message {
+    margin-left: 31cm;
+    font-size: x-large;
+}

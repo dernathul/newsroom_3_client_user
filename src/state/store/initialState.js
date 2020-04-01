@@ -6,7 +6,10 @@ const initialState = {
   selectedCategory: '',
   currentUser: {},
   showForm: false,
-  flashMessage: ""
+  flashMessage: "",
+  authenticated: false,
+  showLoginForm: false,
+  welcomeMessage: ""
 };
 
 export default initialState;

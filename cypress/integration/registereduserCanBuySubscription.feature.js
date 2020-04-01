@@ -16,13 +16,20 @@ describe("User can buy a subscription", () => {
       url: "https://newsroom3api.herokuapp.com/api/v1/subscriptions",
       response: { status: "paid" }
     }).as('purchase')
-    cy.visit("/");
-    cy.window().then(window => {
-      window.store.dispatch({
-        type: "AUTHENTICATE",
-        payload: { currentUser: { email: "karlmarx@mail.com", role: "user" } }
-      });
+
+    cy.route({
+      method: "POST",
+      url: "https://newsroom3api.herokuapp.com/api/v1/auth/sign_in",
+      response: "fixture:login_reg_user.json"
     });
+    cy.route({
+      method: "GET",
+      url: "https://newsroom3api.herokuapp.com/api/v1/auth/**",
+      response: "fixture:login_reg_user.json"
+    });
+
+    cy.visit("/");
+
     cy.get("#article-list").within(() => {
       cy.get("#article-1");
       cy.get("#open-article").click();
@@ -30,7 +37,13 @@ describe("User can buy a subscription", () => {
   });
 
   it("by clickin Buy Subscription", () => {
-    
+    cy.get("#login-button").click();
+    cy.get("#login-form").within(() => {
+      cy.get("#email").type("user@mail.com");
+      cy.get("#password").type("password");
+      cy.get("#submit-button").click();
+    });
+
     cy.get("button")
       .contains("Buy Subscription")
       .click();
