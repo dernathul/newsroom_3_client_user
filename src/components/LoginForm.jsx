@@ -16,7 +16,7 @@ const LoginForm = props => {
         payload: {
           currentUser: { email: response.data.email, role: response.data.role }
         }
-      });
+      });debugger
     } catch (error) {
       console.log(error);
     }

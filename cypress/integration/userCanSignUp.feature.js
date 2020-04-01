@@ -9,8 +9,8 @@ describe("user can Sign up for an account", () => {
 
     cy.route({
       method: "POST",
-      url: "https://newsroom3api.herokuapp.com/api/v1/articles",
-      response: "fixture:signUpUserWithGoodCredentials.json"
+      url: "https://newsroom3api.herokuapp.com/api/v1/auth",
+      response: "fixture:sign_up.json"
     });
     cy.visit("/");
   });
