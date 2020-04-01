@@ -68,6 +68,13 @@ const rootReducer = (state = initialState, action) => {
         showLoginForm: false
       };
 
+    case actionTypes.SHOW_SIGN_UP_FORM:
+      return {
+        ...state,
+        ...action.payload,
+        SigUpForm: true
+      }
+
     default:
       return state;
   }

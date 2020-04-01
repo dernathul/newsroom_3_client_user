@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {
   SELECT_CATEGORY,
   LOGOUT,
-  SHOW_LOGIN_FORM
+  SHOW_LOGIN_FORM,
+  SHOW_SIGN_UP_FORM
 } from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
 
@@ -35,6 +36,7 @@ const CategoryHeader = props => {
         >
           Log out
         </button>
+
       </>
     ) : (
       <>
@@ -52,6 +54,20 @@ const CategoryHeader = props => {
         </button>
       </>
     );
+
+    let SignUp = 
+    <button
+    // class="ui secondary button"
+    id="sign-up"
+    onClick={() =>
+      props.dispatch({
+        type: SHOW_SIGN_UP_FORM,
+        payload: { SignUpForm: true }
+      })
+    }
+  >
+    Sign up
+  </button>
 
   return (
     <Segment inverted>
@@ -115,7 +131,11 @@ const CategoryHeader = props => {
           Culture
         </Menu.Item>
         {switchLoginAndLogOut}
+        {SignUp}
       </Menu>
+
+
+
     </Segment>
   );
 };
