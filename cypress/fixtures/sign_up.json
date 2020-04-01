@@ -1,9 +1,9 @@
 {
   "data": {
     "id": 3,
-    "email": "john-doe@gmail.com",
+    "email": "john-doe1@gmail.com",
     "provider": "email",
-    "uid": "john-doe@gmail.com",
+    "uid": "john-doe1@gmail.com",
     "role": "reg_user",
     "allow_password_change": false
   }

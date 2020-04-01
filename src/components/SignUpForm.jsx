@@ -27,7 +27,7 @@ const SignUpForm = props => {
   if (props.authenticated) {
     signup = (
       <>
-        <p id="logged-in-message">Hi! {props.currentUser.email}</p>
+        <p id="signed-up-message">Hi! {props.currentUser.email}</p>
       </>
     );
    

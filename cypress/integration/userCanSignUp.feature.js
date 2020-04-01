@@ -19,11 +19,11 @@ describe("user can Sign up for an account", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
     cy.get("#sign-up-form").within(() => {
-      cy.get("#email").type("john-doe@gmail.com");
+      cy.get("#email").type("john-doe1@gmail.com");
       cy.get("#password").type("password");
       cy.get("#passwordconfirmation").type("password");
       cy.get("#signup-button").click();
     });
-    cy.get("#signed-up-message").should("contain", "Account created!");
+    cy.get("#signed-up-message").should("contain", "Hi! john-doe1@gmail.com");
   });
 });
