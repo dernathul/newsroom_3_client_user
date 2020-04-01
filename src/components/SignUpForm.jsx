@@ -1,47 +1,53 @@
 import React from "react";
 import { connect } from "react-redux";
+import auth from "../modules/auth";
+import { AUTHENTICATE } from "../state/actions/actionTypes";
 import { Modal } from 'semantic-ui-react'
 
 const SignUpForm = props => {
-  const onSignup = e => {
+  const onSignup = async e => {
     e.preventDefault();
-  }
-  //   try {
-  //     let response = await auth.signIn(
-  //       e.target.elements.email.value,
-  //       e.target.elements.password.value
-  //     );
-  //     props.dispatch({
-  //       type: AUTHENTICATE,
-  //       payload: {
-  //         currentUser: { email: response.data.email, role: response.data.role }
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //     debugger;
-  //   };
-  // }
-
-    let SigningUpForm = (
-      <Modal open={true}>
-        <form id="sign-up-form" onSubmit={onSignup}>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <input type="password" placeholder="Confirm Password" />
-          <button type="signup">Sign Up</button>
-        </form>
-      </Modal>
-    );
-
-    return <div>
-{ SigningUpForm }
-    </div>
-  };
-  const mapStateToProps = state => {
-    return {
-      showSignUpForm: state.showSignUpForm
-    }
+    debugger
+    try {
+      let response = await auth.signUp(
+        {
+          email: e.target.elements.email.value,
+          password: e.target.elements.password.value,
+          passwordconfirmation: e.target.elements.passwordconfirmation.value
+        })
+      props.dispatch({
+      type: AUTHENTICATE,
+      payload: {
+        currentUser: { email: response.data.email,
+                       password: response.data.password, 
+                       passwordconfirmation: response.data.passwordconfirmation }
+      }
+    });
+     } catch (error) {
+    console.log(error);
+     };
   }
 
-  export default connect(mapStateToProps)(SignUpForm);
+
+let SigningUpForm = (
+
+  <form id="sign-up-form" onSubmit={onSignup}>
+    <input id = "email" name= "email" type="email" placeholder="Email" />
+    <input id = "password" name= "password" type="password" placeholder="Password" />
+    <input id = "passwordconfirmation" name= "passwordconfirmation" type="password" placeholder="Confirm Password" />
+    <button id = "signup-button" type="signup">Sign Up</button>
+  </form>
+);
+
+return <div>
+  {SigningUpForm}
+</div>
+};
+const mapStateToProps = state => {
+  return {
+    showSignUpForm: state.showSignUpForm,
+    authenticated: state.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(SignUpForm);
