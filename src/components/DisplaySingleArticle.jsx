@@ -10,7 +10,7 @@ const DisplaySingleArticle = props => {
   let article = props.singleArticle;
 
   let showContent =
-    currentUser.role === "subscriber" || article.premium === "false" ? (
+    currentUser.role === "subscriber" || article.premium === false ? (
       <FullContent />
     ) : (
       <RestrictedContent />
@@ -25,7 +25,7 @@ const DisplaySingleArticle = props => {
         id="home-button"
         onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
       >
-        Back
+      Back
       </button>
     </>
   );
