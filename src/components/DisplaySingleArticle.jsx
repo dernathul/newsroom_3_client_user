@@ -18,17 +18,17 @@ const DisplaySingleArticle = props => {
 
   articleDetails = (
     <>
-      <div class="ui items">
-        <div class="item">
-          <a class="ui small image">
+      <div className="ui main container">
+     
+      <div id="single-article" class="ui centered card">
             <div class="ui placeholder">
-              <div class="image"></div>
+              <div class="square image"></div>
             </div>
-          </a>
+     
           <div class="content">
-            <h2 class="header" key={article.title}>
+            <h1 class="header" key={article.title}>
               {article.title}
-            </h2>
+            </h1>
             <div class="description">
               <h5 key={article.snippet}>{article.snippet}</h5>
               {showContent}
@@ -41,6 +41,7 @@ const DisplaySingleArticle = props => {
             </div>
           </div>
         </div>
+       
       </div>
     </>
   );

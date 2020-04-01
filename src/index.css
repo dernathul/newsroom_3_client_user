@@ -1,6 +1,7 @@
 .ui.secondary.button {
     margin-left: 21cm;
     font-size: large;
+    margin-top: 1rem;
 }
 
 #login-form {
@@ -12,8 +13,11 @@
 }
 
 #logged-in-message {
-    margin-left: 31cm;
-    font-size: x-large;
+    position: absolute;
+    margin-left: 33.6cm;
+    margin-top: -8rem;
+    color: white
+   
 }
 
 .ui.placeholder {
@@ -39,6 +43,14 @@
 
 #card {
  
-    display: inline-block
+    display: inline-block;
+    
+}
+
+#single-article {
+
+    width: 420px;
+    display: inline-block;
+    margin-left: 15rem;
 }
 
