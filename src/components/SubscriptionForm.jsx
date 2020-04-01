@@ -24,7 +24,6 @@ const SubscriptionForm = props => {
     try {
       let paymentStatus = await axios.post("/subscriptions", 
     { stripeToken: token, email: currentUser.email}, { headers: headers})
-    debugger
     if (paymentStatus.data.status === "paid") {
       dispatch({
         type: FLASH_MESSAGE, payload: {
