@@ -11,24 +11,39 @@ const RestrictedContent = props => {
   let switchLoginAndSubscribe =
     currentUser.role === "reg_user" ? (
       <>
-      <p>This is premium article. If you want to continue reading, you need to subscribe.</p>
-      <button
-        onClick={() =>
-          props.dispatch({
-            type: SHOW_SUBSCRIPTION_FORM,
-            payload: { showForm: true }
-          })
-        }
-      >
-        Buy Subscription
-      </button>
+        <p>
+          This is premium article. If you want to continue reading, you need to
+          subscribe.
+        </p>
+        <button
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_SUBSCRIPTION_FORM,
+              payload: { showForm: true }
+            })
+          }
+        >
+          Buy Subscription
+        </button>
       </>
     ) : (
       <>
-      <p>This is premium article. If you want to subscribe, you need to be a registered user</p>
-      <button id = "login-button"
-      onClick = {() => props.dispatch({type: SHOW_LOGIN_FORM, payload: {showLoginForm: true}})}>Login</button>
-    </>
+        <p>
+          This is premium article. If you want to subscribe, you need to be a
+          registered user
+        </p>
+        <button
+          id="login-button"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_LOGIN_FORM,
+              payload: { showLoginForm: true }
+            })
+          }
+        >
+          Login
+        </button>
+      </>
     );
 
   return (

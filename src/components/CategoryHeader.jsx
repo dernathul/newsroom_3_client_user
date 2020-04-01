@@ -23,7 +23,9 @@ const CategoryHeader = props => {
   let switchLoginAndLogOut =
     currentUser.role === "reg_user" || currentUser.role === "subscriber" ? (
       <>
-        <button class="ui secondary button" id="logout-button"
+        <button
+          class="ui secondary button"
+          id="logout-button"
           onClick={() =>
             props.dispatch({
               type: LOGOUT,
@@ -36,7 +38,8 @@ const CategoryHeader = props => {
       </>
     ) : (
       <>
-        <button class="ui secondary button"
+        <button
+          class="ui secondary button"
           id="login-button"
           onClick={() =>
             props.dispatch({
@@ -114,7 +117,6 @@ const CategoryHeader = props => {
         {switchLoginAndLogOut}
       </Menu>
     </Segment>
-
   );
 };
 

@@ -3,7 +3,6 @@ import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
 import { connect } from "react-redux";
 
-
 const LoginForm = props => {
   const onLogin = async e => {
     e.preventDefault();
