@@ -17,7 +17,9 @@ const SubscriptionForm = props => {
     event.preventDefault()
     let stripeResponse = await props.stripe.createToken()
     let token = stripeResponse.token.id
+    try {
     let paymentStatus = await axios.post("https://newsroom3api.herokuapp.com/api/v1/subscriptions", { stripeToken: token, email: currentUser.email })
+    debugger
     if (paymentStatus.data.status === "paid") {
       dispatch({
         type: FLASH_MESSAGE, payload: {
@@ -26,7 +28,16 @@ const SubscriptionForm = props => {
           currentUser: { email: "karlmarx@mail.com", role: "subscriber" }
         }
       })
+    }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
+    } catch (errors) {
+      dispatch({
+        type: FLASH_MESSAGE,
+        payload: {
+          flashMessage: (errors.response.data.errors[0]),
+          showForm: false,
+        }
+      });
     }
   }
 
