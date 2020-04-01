@@ -11,14 +11,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal } from 'semantic-ui-react'
 
 const SubscriptionForm = props => {
+  
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
   const confirmSubscription = async (event) => {
+
     event.preventDefault()
     let stripeResponse = await props.stripe.createToken()
     let token = stripeResponse.token.id
+    let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"))
+
     try {
-    let paymentStatus = await axios.post("https://newsroom3api.herokuapp.com/api/v1/subscriptions", { stripeToken: token, email: currentUser.email })
+      let paymentStatus = await axios.post("/subscriptions", 
+    { stripeToken: token, email: currentUser.email}, { headers: headers})
     debugger
     if (paymentStatus.data.status === "paid") {
       dispatch({
@@ -30,14 +35,10 @@ const SubscriptionForm = props => {
       })
     }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
-    } catch (errors) {
-      dispatch({
-        type: FLASH_MESSAGE,
-        payload: {
-          flashMessage: (errors.response.data.errors[0]),
-          showForm: false,
-        }
-      });
+    } 
+    catch (error) {
+      debugger
+   console.log(error)
     }
   }
 

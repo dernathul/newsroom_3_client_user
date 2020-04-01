@@ -10,7 +10,7 @@ import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter } from "react-router-dom";
 import { StripeProvider } from "react-stripe-elements"
 
-axios.defaults.baseURL = "https://newsroom3api.herokuapp.com/api/v1";
+axios.defaults.baseURL = "http://localhost:3000/api/v1";
 
 const store = configureStore();
 window.store = store;
