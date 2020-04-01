@@ -1,6 +1,10 @@
-.ui.secondary.button {
-    margin-left: 21cm;
-    font-size: large;
+#logout-button {
+    margin-left:  20.5cm
+}
+
+#sign-up {
+    margin-left: 20cm;
+    
 }
 
 #login-form {

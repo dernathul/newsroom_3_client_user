@@ -39,24 +39,8 @@ const CategoryHeader = props => {
       </>
     ) : (
       <>
-        <button
-          class="ui secondary button"
-          id="login-button"
-          onClick={() =>
-            props.dispatch({
-              type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true }
-            })
-          }
-        >
-          Login
-        </button>
-      </>
-    );
-
-  let SignUp = (
-    <button
-      // class="ui secondary button"
+   <button
+     class="ui secondary button"
       id="sign-up"
       onClick={() =>
         props.dispatch({
@@ -67,7 +51,21 @@ const CategoryHeader = props => {
     >
       Sign up
     </button>
-  );
+    <button
+          class="ui secondary button"
+          id="login-button"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_LOGIN_FORM,
+              payload: { showLoginForm: true }
+            })
+          }
+        >
+          Login
+        </button> 
+      </>
+    );
+
 
   return (
     <Segment inverted>
@@ -131,7 +129,6 @@ const CategoryHeader = props => {
           Culture
         </Menu.Item>
         {switchLoginAndLogOut}
-        {SignUp}
       </Menu>
     </Segment>
   );
