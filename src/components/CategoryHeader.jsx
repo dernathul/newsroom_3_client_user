@@ -36,7 +36,6 @@ const CategoryHeader = props => {
         >
           Log out
         </button>
-
       </>
     ) : (
       <>
@@ -55,19 +54,20 @@ const CategoryHeader = props => {
       </>
     );
 
-    let SignUp = 
+  let SignUp = (
     <button
-    // class="ui secondary button"
-    id="sign-up"
-    onClick={() =>
-      props.dispatch({
-        type: SHOW_SIGN_UP_FORM,
-        payload: { SignUpForm: true }
-      })
-    }
-  >
-    Sign up
-  </button>
+      // class="ui secondary button"
+      id="sign-up"
+      onClick={() =>
+        props.dispatch({
+          type: SHOW_SIGN_UP_FORM,
+          payload: { SignUpForm: true }
+        })
+      }
+    >
+      Sign up
+    </button>
+  );
 
   return (
     <Segment inverted>
@@ -133,9 +133,6 @@ const CategoryHeader = props => {
         {switchLoginAndLogOut}
         {SignUp}
       </Menu>
-
-
-
     </Segment>
   );
 };

@@ -7,12 +7,17 @@ describe("user can Sign up for an account", () => {
       response: "fixture:articles.json"
     });
     cy.visit("/");
-  })
+  });
 
   it("user can register for an account", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
-  })
-
-
-})
+    cy.get("#sign-up-form").within(() => {
+      cy.get("#email").type("email");
+      cy.get("#password").type("password");
+      cy.get("#password").type("confirm password");
+      cy.get("#signup-button").click();
+    });
+    cy.get("#singed-up-message").should("contain", "Account created!");
+  });
+});
