@@ -49,16 +49,16 @@ const SubscriptionForm = props => {
   return (
     <Modal open={true}>
       <form id="subscription-form">
-        <h1>Subscribe to become Premium Member!</h1>
-        <h3>Read all our content with a yearly subscription for 499 kr</h3>
-        <label>Card Number</label>
+        <h1>{t('Subscribe to become Premium Member!')}</h1>
+        <h3>{t('Read all our content with a yearly subscription for 499 kr')}</h3>
+        <label>{t('Card Number')}</label>
         <CardNumberElement />
-        <label>Card Expiration Date</label>
+        <label>{t('Card Expiration Date')}</label>
         <CardExpiryElement />
-        <label>Card CVC</label>
+        <label>{t('Card CVC')}</label>
         <CardCVCElement />
         <button onClick={event => confirmSubscription(event)}>
-          Purchase Subscription
+          {t('Purchase Subscription')}
         </button>
       </form>
     </Modal>

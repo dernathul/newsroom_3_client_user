@@ -2,8 +2,10 @@ import React from "react";
 import auth from "../modules/auth";
 import { AUTHENTICATE } from "../state/actions/actionTypes";
 import { connect } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = props => {
+  const { t } = useTranslation()
   const onLogin = async e => {
     e.preventDefault();
     try {
@@ -35,7 +37,7 @@ const LoginForm = props => {
     login = (
       <>
         <p id="logged-in-message" class="success-message">
-          Hi, {cutEmail}!
+          {t('Hi')}, {cutEmail}!
         </p>
         {onLogout}
       </>
@@ -48,7 +50,7 @@ const LoginForm = props => {
         <input id="email" name="email" placeholder="Email" />
         </div>
         <div class="field">
-        <label>Password</label>
+        <label>{t('Password')}</label>
         <input
           id="password"
           name="password"
@@ -57,7 +59,7 @@ const LoginForm = props => {
         />
         </div>
         <button  class="ui button" id="submit-button" type="submit">
-          Sign in{" "}
+          {t('Sign in')}{" "}
         </button>
       </form>
     );

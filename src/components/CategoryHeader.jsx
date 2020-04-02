@@ -40,7 +40,7 @@ const CategoryHeader = props => {
             })
           }
         >
-          Log out
+          {t('Log out')}
         </button>
       </>
     ) : (
@@ -55,7 +55,7 @@ const CategoryHeader = props => {
               })
             }
           >
-            Sign up
+            {t('Sign up')}
         </button>
           <button
             class="ui secondary button"
@@ -67,7 +67,7 @@ const CategoryHeader = props => {
               })
             }
           >
-            Login
+            {t('Login')}
         </button>
         </>
       );
@@ -101,7 +101,7 @@ const CategoryHeader = props => {
           active={props.activeItem === "tech"}
           onClick={handleItemClick}
         >
-          Tech
+          {t('Tech')}
         </Menu.Item>
         <Menu.Item
           name="sports"
@@ -111,7 +111,7 @@ const CategoryHeader = props => {
           active={props.activeItem === "sports"}
           onClick={handleItemClick}
         >
-          Sports
+          {t('Sports')}
         </Menu.Item>
         <Menu.Item
           name="politics"

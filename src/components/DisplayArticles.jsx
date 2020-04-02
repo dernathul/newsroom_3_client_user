@@ -2,8 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchSingleArticle } from "../state/actions/articleAction";
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
 
 const DisplayArticles = props => {
+    const { t } = useTranslation()
   const showArticle = articleId => {
     props.fetchSingleArticle(articleId);
   };
@@ -26,8 +33,7 @@ const DisplayArticles = props => {
           id="open-article"
           onClick={() => showArticle(article.id)}
           key={article.id}
-        >
-          Read more
+        > {t('Read more')}
         </button>
       </div>
     );
