@@ -28,23 +28,35 @@ const LoginForm = props => {
 
   let login;
   if (props.authenticated) {
+    let cutEmail = props.currentUser.email.substring(
+      0,
+      props.currentUser.email.indexOf("@")
+    );
     login = (
       <>
-        <p id="logged-in-message">Hi! {props.currentUser.email}</p>
+        <p id="logged-in-message" class="success-message">
+          Hi, {cutEmail}!
+        </p>
         {onLogout}
       </>
     );
   } else {
     login = (
-      <form id="login-form" onSubmit={onLogin}>
+      <form class="ui form" id="login-form" onSubmit={onLogin}>
+         <div class="field">
+         <label>Email</label>
         <input id="email" name="email" placeholder="Email" />
+        </div>
+        <div class="field">
+        <label>Password</label>
         <input
           id="password"
           name="password"
           type="password"
           placeholder="Password"
         />
-        <button id="submit-button" type="submit">
+        </div>
+        <button  class="ui button" id="submit-button" type="submit">
           Sign in{" "}
         </button>
       </form>

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {
   SELECT_CATEGORY,
   LOGOUT,
-  SHOW_LOGIN_FORM
+  SHOW_LOGIN_FORM,
+  SHOW_SIGN_UP_FORM
 } from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
 
@@ -40,11 +41,23 @@ const CategoryHeader = props => {
       <>
         <button
           class="ui secondary button"
+          id="sign-up"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_SIGN_UP_FORM,
+              payload: { showSignUpForm: true, showLoginForm: false }
+            })
+          }
+        >
+          Sign up
+        </button>
+        <button
+          class="ui secondary button"
           id="login-button"
           onClick={() =>
             props.dispatch({
               type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true }
+              payload: { showLoginForm: true, showSignUpForm: false }
             })
           }
         >

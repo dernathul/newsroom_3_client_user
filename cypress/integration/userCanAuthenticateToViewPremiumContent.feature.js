@@ -25,7 +25,7 @@ describe("regular user can login and can't view premium content", () => {
       cy.get("#password").type("password");
       cy.get("#submit-button").click();
     });
-    cy.get("#logged-in-message").should("contain", "Hi! user@mail.com");
+    cy.get("#logged-in-message").should("contain", "Hi, user!");
     cy.get("#article-list").within(() => {
       cy.get("#article-1").within(() => {
         cy.get("#open-article").click();
@@ -62,7 +62,7 @@ describe("premium user can login, view premium content and logout", () => {
       cy.get("#password").type("password");
       cy.get("#submit-button").click();
     });
-    cy.get("#logged-in-message").should("contain", "Hi! karlmarx@mail.com");
+    cy.get("#logged-in-message").should("contain", "Hi, karlmarx!");
     cy.get("#article-list").within(() => {
       cy.get("#article-1").within(() => {
         cy.get("#open-article").click();

@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { SHOW_SUBSCRIPTION_FORM } from "../state/actions/actionTypes";
-import { SHOW_LOGIN_FORM } from "../state/actions/actionTypes";
+import {
+  SHOW_LOGIN_FORM,
+  SHOW_SIGN_UP_FORM
+} from "../state/actions/actionTypes";
 const RestrictedContent = props => {
   let article = props.singleArticle;
 
@@ -33,11 +36,22 @@ const RestrictedContent = props => {
           registered user
         </p>
         <button
+          id="signup-button"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_SIGN_UP_FORM,
+              payload: { showSignUpForm: true, showLoginForm: false }
+            })
+          }
+        >
+          Sign Up
+        </button>
+        <button
           id="login-button"
           onClick={() =>
             props.dispatch({
               type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true }
+              payload: { showLoginForm: true, showSignUpForm: false }
             })
           }
         >

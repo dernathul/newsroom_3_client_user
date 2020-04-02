@@ -1,17 +1,34 @@
-.ui.secondary.button {
-    margin-left: 21cm;
-    font-size: large;
+#logout-button {
+    margin-left:  20.5cm;
+}
+
+#sign-up {
+    margin-left: 20cm;  
 }
 
 #login-form {
-    margin-left: 27cm;
-}
-
-#submit-button {
-    background-color: cadetblue;
+    position: absolute;
+    width: 400px;
+    margin-left: 28cm;
 }
 
 #logged-in-message {
-    margin-left: 31cm;
-    font-size: x-large;
+    position: absolute;
+    margin-left: 36cm;
+    margin-top: -4.1rem;
+    color: white  
 }
+
+#signed-up-message {
+    position: absolute;
+    margin-left: 36cm;
+    margin-top: -4.1rem;
+    color: white 
+}
+
+#sign-up-form {
+    position: absolute;
+    width: 400px;
+    margin-left: 28cm;
+}
+
