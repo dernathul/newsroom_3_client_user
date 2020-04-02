@@ -25,7 +25,6 @@ const SignUpForm = props => {
     } catch (error) {
       console.log(error);
     }
-    debugger;
   };
   let signup;
 
@@ -45,26 +44,26 @@ const SignUpForm = props => {
     signup = (
       <form class="ui form" id="sign-up-form" onSubmit={onSignup}>
         <div class="field">
-        <label>Email</label>
-        <input id="email" name="email" type="email" placeholder="Email" />
+          <label>Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" />
         </div>
         <div class="field">
-        <label>Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-        />
+          <label>Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </div>
         <div class="field">
-        <label>Confirm Password</label>
-        <input
-          id="passwordconfirmation"
-          name="passwordconfirmation"
-          type="password"
-          placeholder="Confirm Password"
-        />
+          <label>Confirm Password</label>
+          <input
+            id="passwordconfirmation"
+            name="passwordconfirmation"
+            type="password"
+            placeholder="Confirm Password"
+          />
         </div>
         <button class="ui button" id="signup-button" type="signup">
           Sign Up
@@ -72,7 +71,6 @@ const SignUpForm = props => {
       </form>
     );
   }
-  debugger;
 
   return <div>{signup}</div>;
 };

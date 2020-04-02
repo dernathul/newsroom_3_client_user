@@ -39,19 +39,19 @@ const CategoryHeader = props => {
       </>
     ) : (
       <>
-   <button
-     class="ui secondary button"
-      id="sign-up"
-      onClick={() =>
-        props.dispatch({
-          type: SHOW_SIGN_UP_FORM,
-          payload: { showSignUpForm: true, showLoginForm: false }
-        })
-      }
-    >
-      Sign up
-    </button>
-    <button
+        <button
+          class="ui secondary button"
+          id="sign-up"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_SIGN_UP_FORM,
+              payload: { showSignUpForm: true, showLoginForm: false }
+            })
+          }
+        >
+          Sign up
+        </button>
+        <button
           class="ui secondary button"
           id="login-button"
           onClick={() =>
@@ -62,10 +62,9 @@ const CategoryHeader = props => {
           }
         >
           Login
-        </button> 
+        </button>
       </>
     );
-
 
   return (
     <Segment inverted>
