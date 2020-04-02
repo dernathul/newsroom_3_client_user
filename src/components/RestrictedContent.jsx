@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { SHOW_SUBSCRIPTION_FORM } from "../state/actions/actionTypes";
-import { SHOW_LOGIN_FORM } from "../state/actions/actionTypes";
+import {
+  SHOW_LOGIN_FORM,
+  SHOW_SIGN_UP_FORM
+} from "../state/actions/actionTypes";
 const RestrictedContent = props => {
   let article = props.singleArticle;
 
@@ -32,6 +35,17 @@ const RestrictedContent = props => {
           This is premium article. If you want to subscribe, you need to be a
           registered user
         </p>
+        <button
+          id="signup-button"
+          onClick={() =>
+            props.dispatch({
+              type: SHOW_SIGN_UP_FORM,
+              payload: { showSignUpForm: true }
+            })
+          }
+        >
+          Sign Up
+        </button>
         <button
           id="login-button"
           onClick={() =>

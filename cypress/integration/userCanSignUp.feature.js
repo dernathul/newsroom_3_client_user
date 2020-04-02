@@ -47,7 +47,7 @@ describe("user cannot Sign up with invalid credentials", () => {
     });
     cy.visit("/");
   });
-  it("user cannot register without invalid email", () => {
+  it("user cannot register with invalid email", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
     cy.get("#sign-up-form").within(() => {
