@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -8,7 +8,8 @@ import configureStore from "./state/store/configureStore";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter } from "react-router-dom";
-import { StripeProvider } from "react-stripe-elements"
+import { StripeProvider } from "react-stripe-elements";
+import './i18n'
 
 axios.defaults.baseURL = "https://newsroom3api.herokuapp.com/api/v1";
 
@@ -18,7 +19,9 @@ ReactDOM.render(
   <Provider store={store}>
     <StripeProvider apiKey='pk_test_80OAV5NYF42UKxVAzu8MRvzI00eg82xAQ3'>
       <BrowserRouter>
-        <App />
+      <Suspense fallback = {(<div>Loading...</div>)} >
+      <App />
+      </Suspense>
       </BrowserRouter>
     </StripeProvider>
   </Provider>,

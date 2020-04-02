@@ -8,8 +8,14 @@ import {
   SHOW_SIGN_UP_FORM
 } from "../state/actions/actionTypes";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n'
+
+
 
 const CategoryHeader = props => {
+  const { t } = useTranslation()
+
   const handleItemClick = event => {
     props.dispatch({
       type: SELECT_CATEGORY,
@@ -38,33 +44,33 @@ const CategoryHeader = props => {
         </button>
       </>
     ) : (
-      <>
-        <button
-          class="ui secondary button"
-          id="sign-up"
-          onClick={() =>
-            props.dispatch({
-              type: SHOW_SIGN_UP_FORM,
-              payload: { showSignUpForm: true, showLoginForm: false }
-            })
-          }
-        >
-          Sign up
+        <>
+          <button
+            class="ui secondary button"
+            id="sign-up"
+            onClick={() =>
+              props.dispatch({
+                type: SHOW_SIGN_UP_FORM,
+                payload: { showSignUpForm: true, showLoginForm: false }
+              })
+            }
+          >
+            Sign up
         </button>
-        <button
-          class="ui secondary button"
-          id="login-button"
-          onClick={() =>
-            props.dispatch({
-              type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true, showSignUpForm: false }
-            })
-          }
-        >
-          Login
+          <button
+            class="ui secondary button"
+            id="login-button"
+            onClick={() =>
+              props.dispatch({
+                type: SHOW_LOGIN_FORM,
+                payload: { showLoginForm: true, showSignUpForm: false }
+              })
+            }
+          >
+            Login
         </button>
-      </>
-    );
+        </>
+      );
 
   return (
     <Segment inverted>
@@ -76,7 +82,7 @@ const CategoryHeader = props => {
           to={{ pathname: "/" }}
           active={props.activeItem === "all"}
           onClick={handleItemClick}
-        ></Menu.Item>
+        >{t('Home')}</Menu.Item>
         <Menu.Item
           name="latest_news"
           id="latest_news"
@@ -85,7 +91,7 @@ const CategoryHeader = props => {
           active={props.activeItem === "latest_news"}
           onClick={handleItemClick}
         >
-          Latest News
+          {t('Latest News')}
         </Menu.Item>
         <Menu.Item
           name="tech"
@@ -115,7 +121,7 @@ const CategoryHeader = props => {
           active={props.activeItem === "politics"}
           onClick={handleItemClick}
         >
-          Politics
+          {t('Politics')}
         </Menu.Item>
         <Menu.Item
           name="culture"
@@ -125,9 +131,12 @@ const CategoryHeader = props => {
           active={props.activeItem === "culture"}
           onClick={handleItemClick}
         >
-          Culture
+          {t('Culture')}
         </Menu.Item>
         {switchLoginAndLogOut}
+        <Menu.Item onClick={()=> i18n.changeLanguage('en')}>EN</Menu.Item>
+        <Menu.Item onClick={()=> i18n.changeLanguage('sv')}>SV</Menu.Item>
+
       </Menu>
     </Segment>
   );
