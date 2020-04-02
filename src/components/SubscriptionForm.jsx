@@ -11,22 +11,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { Modal } from 'semantic-ui-react'
 
 const SubscriptionForm = props => {
+  
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
   const confirmSubscription = async (event) => {
+
     event.preventDefault()
     let stripeResponse = await props.stripe.createToken()
     let token = stripeResponse.token.id
-    let paymentStatus = await axios.post("https://newsroom3api.herokuapp.com/api/v1/subscriptions", { stripeToken: token, email: currentUser.email })
+    let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"))
+
+    try {
+      let paymentStatus = await axios.post("/subscriptions", 
+    { stripeToken: token, email: currentUser.email}, { headers: headers})
     if (paymentStatus.data.status === "paid") {
       dispatch({
         type: FLASH_MESSAGE, payload: {
           flashMessage: "Thank you for your purchase!",
           showForm: false,
-          currentUser: { email: "karlmarx@mail.com", role: "subscriber" }
+          currentUser: { email: currentUser.email, role: "subscriber" }
         }
       })
+    }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
+    } 
+    catch (response) {
+      dispatch({
+        type: FLASH_MESSAGE,
+        payload: {
+          flashMessage: response.data.error_message,
+          showForm: false,
+        }
+      });
     }
   }
 
