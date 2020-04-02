@@ -1,12 +1,10 @@
 {
   "data": {
-    "data": {
-      "id": 3,
-      "email": "john-doe1@gmail.com",
-      "provider": "email",
-      "uid": "john-doe1@gmail.com",
-      "role": "reg_user",
-      "allow_password_change": false
-    }
+    "id": 3,
+    "email": "johndoe@gmail.com",
+    "provider": "email",
+    "uid": "johndoe@gmail.com",
+    "role": "reg_user",
+    "allow_password_change": false
   }
 }

@@ -26,13 +26,10 @@ const SignUpForm = props => {
       console.log(error);
     }
   };
+  
   let signup;
-
   if (props.authenticated) {
-    let cutEmail = props.currentUser.email.substring(
-      0,
-      props.currentUser.email.indexOf("@")
-    );
+    let cutEmail = props.currentUser.email.substring(0, props.currentUser.email.indexOf("@"));
     signup = (
       <>
         <p id="signed-up-message" class="success-message">

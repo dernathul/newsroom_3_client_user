@@ -19,12 +19,14 @@ describe("user can Sign up for an account", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
     cy.get("#sign-up-form").within(() => {
-      cy.get("#email").type("john-doe1@gmail.com");
+      cy.get("#email").type("johndoe@gmail.com");
       cy.get("#password").type("password");
       cy.get("#passwordconfirmation").type("password");
+    
       cy.get("#signup-button").click();
+      
     });
-    cy.get("#signed-up-message").should("contain", "Hi, john-doe1!");
+    cy.get("#signed-up-message").should("contain", "Hi, johndoe!");
     cy.get("#sign-up-form").should("not.exist");
     cy.get("#logout-button").should("exist");
     cy.get("#signup-button").should("not.exist");
@@ -54,7 +56,9 @@ describe("user cannot Sign up with invalid credentials", () => {
       cy.get("#email").type("usermail.com");
       cy.get("#password").type("password");
       cy.get("#passwordconfirmation").type("password");
+      
       cy.get("#signup-button").click();
+      
     });
     cy.get("#signed-up-message").should("not.exist");
     cy.get("#sign-up-form").should("exist");
@@ -64,10 +68,11 @@ describe("user cannot Sign up with invalid credentials", () => {
     cy.get("#category-header");
     cy.get("#sign-up").click();
     cy.get("#sign-up-form").within(() => {
-      cy.get("#email").type("john-doe1@gmail.com");
+      cy.get("#email").type("johndoe@gmail.com");
       cy.get("#password").type("passord");
       cy.get("#passwordconfirmation").type("password");
       cy.get("#signup-button").click();
+      
     });
     cy.get("#signed-up-message").should("not.exist");
     cy.get("#sign-up-form").should("exist");
