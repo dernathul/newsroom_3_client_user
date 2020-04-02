@@ -16,6 +16,20 @@
 }
 
 #logged-in-message {
-    margin-left: 31cm;
-    font-size: x-large;
+    position: absolute;
+    margin-left: 30cm;
+    margin-top: -4.3rem;
+    color: white  
+}
+
+#signed-up-message {
+    position: absolute;
+    margin-left: 30cm;
+    margin-top: -4.3rem;
+    color: white 
+}
+
+#article-list {
+    display: flex;
+    justify-content: ;
 }

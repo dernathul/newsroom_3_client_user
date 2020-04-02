@@ -16,11 +16,11 @@ const LoginForm = props => {
         payload: {
           currentUser: { email: response.data.email, role: response.data.role }
         }
-      });debugger
+      });
     } catch (error) {
       console.log(error);
     }
-  };
+  };debugger
 
   const onLogout = () => {
     auth.signOut();
@@ -30,10 +30,10 @@ const LoginForm = props => {
   if (props.authenticated) {
     login = (
       <>
-        <p id="logged-in-message">Hi! {props.currentUser.email}</p>
+        <p id="logged-in-message" class="success-message">Hi! {props.currentUser.email.substring(0, props.currentUser.email.indexOf('@') )},</p>
         {onLogout}
       </>
-    );
+    )
   } else {
     login = (
       <form id="login-form" onSubmit={onLogin}>

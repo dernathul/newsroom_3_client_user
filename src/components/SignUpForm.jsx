@@ -12,7 +12,7 @@ const SignUpForm = props => {
         email: e.target.elements.email.value,
         password: e.target.elements.password.value,
         password_confirmation: e.target.elements.passwordconfirmation.value
-      });debugger;
+      });
       props.dispatch({
         type: AUTHENTICATE,
         payload: {
@@ -21,13 +21,13 @@ const SignUpForm = props => {
       });
     } catch (error) {
       console.log(error);
-    }
+    }debugger
   };
   let signup;
   if (props.authenticated) {
     signup = (
       <>
-        <p id="signed-up-message">Hi! {props.currentUser.email}</p>
+        <p id="signed-up-message" class="success-message">Hi! {props.currentUser.email},</p>
       </>
     );
    
