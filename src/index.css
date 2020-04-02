@@ -8,7 +8,9 @@
 }
 
 #login-form {
-    margin-left: 27cm;
+    position: absolute;
+    width: 400px;
+    margin-left: 28cm;
 }
 
 #logged-in-message {

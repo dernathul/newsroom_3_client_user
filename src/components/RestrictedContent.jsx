@@ -40,7 +40,7 @@ const RestrictedContent = props => {
           onClick={() =>
             props.dispatch({
               type: SHOW_SIGN_UP_FORM,
-              payload: { showSignUpForm: true }
+              payload: { showSignUpForm: true, showLoginForm: false }
             })
           }
         >
@@ -51,7 +51,7 @@ const RestrictedContent = props => {
           onClick={() =>
             props.dispatch({
               type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true }
+              payload: { showLoginForm: true, showSignUpForm: false }
             })
           }
         >
