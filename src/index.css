@@ -17,19 +17,15 @@
 
 #logged-in-message {
     position: absolute;
-    margin-left: 30cm;
-    margin-top: -4.3rem;
+    margin-left: 36cm;
+    margin-top: -4.1rem;
     color: white  
 }
 
 #signed-up-message {
     position: absolute;
-    margin-left: 30cm;
-    margin-top: -4.3rem;
+    margin-left: 36cm;
+    margin-top: -4.1rem;
     color: white 
 }
 
-#article-list {
-    display: flex;
-    justify-content: ;
-}

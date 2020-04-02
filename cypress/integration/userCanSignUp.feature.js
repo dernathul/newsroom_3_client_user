@@ -24,6 +24,6 @@ describe("user can Sign up for an account", () => {
       cy.get("#passwordconfirmation").type("password");
       cy.get("#signup-button").click();
     });
-    cy.get("#signed-up-message").should("contain", "Hi! john-doe1@gmail.com");
+    cy.get("#signed-up-message").should("contain", "Hi, john-doe1!");
   });
 });

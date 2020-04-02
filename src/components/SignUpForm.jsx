@@ -24,10 +24,13 @@ const SignUpForm = props => {
     }debugger
   };
   let signup;
+  
+ 
   if (props.authenticated) {
+  let  cutEmail = props.currentUser.email.substring(0, props.currentUser.email.indexOf('@'))
     signup = (
       <>
-        <p id="signed-up-message" class="success-message">Hi! {props.currentUser.email},</p>
+        <p id="signed-up-message" class="success-message">Hi, {cutEmail}!</p>
       </>
     );
    

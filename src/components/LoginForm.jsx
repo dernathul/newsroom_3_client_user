@@ -25,12 +25,13 @@ const LoginForm = props => {
   const onLogout = () => {
     auth.signOut();
   };
-
+  
   let login;
   if (props.authenticated) {
+    let  cutEmail = props.currentUser.email.substring(0, props.currentUser.email.indexOf('@'))
     login = (
       <>
-        <p id="logged-in-message" class="success-message">Hi! {props.currentUser.email.substring(0, props.currentUser.email.indexOf('@') )},</p>
+        <p id="logged-in-message" class="success-message">Hi, {cutEmail}!</p>
         {onLogout}
       </>
     )
