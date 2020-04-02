@@ -18,6 +18,7 @@ const DisplaySingleArticle = props => {
 
   articleDetails = (
     <>
+      <img src={article.image} alt={`${article.title}-image`} />
       <h3 key={article.title}>{article.title}</h3>
       <h5 key={article.snippet}>{article.snippet}</h5>
       {showContent}
@@ -25,7 +26,7 @@ const DisplaySingleArticle = props => {
         id="home-button"
         onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
       >
-      Back
+        Back
       </button>
     </>
   );

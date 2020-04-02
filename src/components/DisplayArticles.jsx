@@ -19,6 +19,7 @@ const DisplayArticles = props => {
   let articleDisplay = articles.map(article => {
     return (
       <div id={`article-${article.id}`} key={article.id}>
+        <img src={article.image} alt={`${article.title}-image`} />
         <h4 id="title">{article.title}</h4>
         <h5 id="snippet">{article.snippet}</h5>
         <button

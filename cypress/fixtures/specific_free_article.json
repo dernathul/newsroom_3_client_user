@@ -5,6 +5,7 @@
     "snippet": "And this is an awesome snippet",
     "content": "And this is the best content you ever read",
     "category": "sports",
-    "premium": false
+    "premium": false,
+    "image": "cypress/support/assets/mars_times.png"
   }
 }

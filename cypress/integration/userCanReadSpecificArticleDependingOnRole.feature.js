@@ -26,6 +26,7 @@ describe("Visitor can read", () => {
       });
     });
     cy.get("#single-article").should("contain", "This is a smashing title");
+    cy.get('img').should('exist')
     cy.get("h5").should("contain", "And this is an awesome snippet");
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get("#article-list").should("not.exist");
@@ -36,6 +37,7 @@ describe("Visitor can read", () => {
       cy.get("#open-article").click();
     });
     cy.get("#single-article").should("contain", "Zero infected on Mars");
+    cy.get("img").should("exist");
     cy.get("h5").should(
       "contain",
       "Mars becomes more and more desirable as Earth is struggling with Corona Virus"
@@ -58,6 +60,7 @@ describe("Visitor can read", () => {
       });
     });
     cy.get("#single-article").should("contain", "This is a smashing title");
+    cy.get("img").should("exist");
     cy.get("h5").should("contain", "And this is an awesome snippet");
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get("#article-list").should("not.exist");
@@ -67,6 +70,7 @@ describe("Visitor can read", () => {
       cy.get("#open-article").click();
     });
     cy.get("#single-article").should("contain", "Zero infected on Mars");
+    cy.get("img").should("exist");
     cy.get("h5").should(
       "contain",
       "Mars becomes more and more desirable as Earth is struggling with Corona Virus"
@@ -90,6 +94,7 @@ describe("Visitor can read", () => {
       });
     });
     cy.get("#single-article").should("contain", "This is a smashing title");
+    cy.get("img").should("exist");
     cy.get("h5").should("contain", "And this is an awesome snippet");
     cy.get("p").should("contain", "And this is the best content you ever read");
     cy.get("#article-list").should("not.exist");
@@ -100,6 +105,7 @@ describe("Visitor can read", () => {
       cy.get("#open-article").click();
     });
     cy.get("#single-article").should("contain", "Zero infected on Mars");
+    cy.get("img").should("exist");
     cy.get("h5").should(
       "contain",
       "Mars becomes more and more desirable as Earth is struggling with Corona Virus"
