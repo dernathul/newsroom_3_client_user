@@ -11,7 +11,7 @@ const initialState = {
   showLoginForm: false,
   welcomeMessage: "",
   showSignUpForm: false,
-  session: { edition: "" }
+  session: { edition: undefined }
 };
 
 export default initialState;

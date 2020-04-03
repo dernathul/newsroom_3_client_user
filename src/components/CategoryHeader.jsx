@@ -134,6 +134,10 @@ const CategoryHeader = props => {
         >
           {t('Culture')}
         </Menu.Item>
+    
+        {switchLoginAndLogOut}
+        <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
+        <Menu.Item onClick={() => i18n.changeLanguage('sv')}>SV</Menu.Item>
         <Menu.Item
           name="edition"
           id="edition"
@@ -142,11 +146,8 @@ const CategoryHeader = props => {
           active={props.activeItem === "edition"}
           onClick={handleItemClick}
         >
-          {`${edition} Edition`}
+          {edition && `${edition} Edition`}
         </Menu.Item>
-        {switchLoginAndLogOut}
-        <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
-        <Menu.Item onClick={() => i18n.changeLanguage('sv')}>SV</Menu.Item>
 
       </Menu>
     </Segment>
