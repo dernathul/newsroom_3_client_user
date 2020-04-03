@@ -133,6 +133,36 @@ const CategoryHeader = props => {
         >
           {t('Culture')}
         </Menu.Item>
+        <Menu.Item
+          name="Stockholm-edition"
+          id="Stockholm-edition"
+          as={Link}
+          to={{ pathname: "/Stockholm-edition" }}
+          active={props.activeItem === "Stockholm-edition"}
+          onClick={handleItemClick}
+        >
+          {t('Stockholm-edition')}
+        </Menu.Item>
+        <Menu.Item
+          name="Gothenburg-edition"
+          id="Gothenburg-edition"
+          as={Link}
+          to={{ pathname: "/Gothenburg-edition" }}
+          active={props.activeItem === "Gothenburg-edition"}
+          onClick={handleItemClick}
+        >
+          {t('Gothenburg-edition')}
+        </Menu.Item>
+        <Menu.Item
+          name="World-edition"
+          id="World-edition"
+          as={Link}
+          to={{ pathname: "/World-edition" }}
+          active={props.activeItem === "World-edition"}
+          onClick={handleItemClick}
+        >
+          {t('World-edition')}
+        </Menu.Item>
         {switchLoginAndLogOut}
         <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
         <Menu.Item onClick={() => i18n.changeLanguage('sv')}>SV</Menu.Item>
