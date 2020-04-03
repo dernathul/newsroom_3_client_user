@@ -13,8 +13,8 @@ i18n
   .init(
     {
       fallbackLng,
-      whitelist: availableLanguages, 
-      interpolation: {escapeValue: false}
+      whitelist: availableLanguages,
+      interpolation: { escapeValue: false }
     }
   )
 export default i18n

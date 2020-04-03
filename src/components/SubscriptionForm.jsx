@@ -25,19 +25,19 @@ const SubscriptionForm = props => {
     let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"))
 
     try {
-      let paymentStatus = await axios.post("/subscriptions", 
-    { stripeToken: token, email: currentUser.email}, { headers: headers})
-    if (paymentStatus.data.status === "paid") {
-      dispatch({
-        type: FLASH_MESSAGE, payload: {
-          flashMessage: "Thank you for your purchase!",
-          showForm: false,
-          currentUser: { email: currentUser.email, role: "subscriber" }
-        }
-      })
-    }
+      let paymentStatus = await axios.post("/subscriptions",
+        { stripeToken: token, email: currentUser.email }, { headers: headers })
+      if (paymentStatus.data.status === "paid") {
+        dispatch({
+          type: FLASH_MESSAGE, payload: {
+            flashMessage: "Thank you for your purchase!",
+            showForm: false,
+            currentUser: { email: currentUser.email, role: "subscriber" }
+          }
+        })
+      }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
-    } 
+    }
     catch (response) {
       dispatch({
         type: FLASH_MESSAGE,

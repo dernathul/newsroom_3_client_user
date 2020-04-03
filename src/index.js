@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -19,9 +19,9 @@ ReactDOM.render(
   <Provider store={store}>
     <StripeProvider apiKey='pk_test_80OAV5NYF42UKxVAzu8MRvzI00eg82xAQ3'>
       <BrowserRouter>
-      <Suspense fallback = {(<div>Loading...</div>)} >
-      <App />
-      </Suspense>
+        <Suspense fallback={(<div>Loading...</div>)} >
+          <App />
+        </Suspense>
       </BrowserRouter>
     </StripeProvider>
   </Provider>,

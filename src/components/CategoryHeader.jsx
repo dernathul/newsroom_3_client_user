@@ -56,7 +56,7 @@ const CategoryHeader = props => {
             }
           >
             {t('Sign up')}
-        </button>
+          </button>
           <button
             class="ui secondary button"
             id="login-button"
@@ -68,7 +68,7 @@ const CategoryHeader = props => {
             }
           >
             {t('Login')}
-        </button>
+          </button>
         </>
       );
 
@@ -134,8 +134,8 @@ const CategoryHeader = props => {
           {t('Culture')}
         </Menu.Item>
         {switchLoginAndLogOut}
-        <Menu.Item onClick={()=> i18n.changeLanguage('en')}>EN</Menu.Item>
-        <Menu.Item onClick={()=> i18n.changeLanguage('sv')}>SV</Menu.Item>
+        <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
+        <Menu.Item onClick={() => i18n.changeLanguage('sv')}>SV</Menu.Item>
 
       </Menu>
     </Segment>
