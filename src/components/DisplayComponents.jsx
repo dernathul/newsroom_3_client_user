@@ -7,7 +7,8 @@ import { bindActionCreators } from "redux";
 import SubscriptionForm from "./SubscriptionForm";
 import { Elements } from "react-stripe-elements";
 import LoginForm from "../components/LoginForm";
-import SignUpForm from "../components/SignUpForm"
+import SignUpForm from "../components/SignUpForm";
+
 
 const DisplayComponents = props => {
   props.fetchArticles();

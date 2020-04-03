@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { BACK_TO_ARTICLES_LIST } from "../state/actions/actionTypes";
 import FullContent from "./FullContent";
 import RestrictedContent from "./RestrictedContent";
+import { useTranslation } from 'react-i18next';
 
 const DisplaySingleArticle = props => {
+  const { t } = useTranslation()
   let articleDetails;
   let currentUser = props.currentUser;
   let article = props.singleArticle;
@@ -26,7 +28,7 @@ const DisplaySingleArticle = props => {
         id="home-button"
         onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
       >
-        Back
+        {t('Back')}
       </button>
     </>
   );

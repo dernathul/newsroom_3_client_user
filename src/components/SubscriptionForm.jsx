@@ -8,10 +8,13 @@ import {
 import axios from "axios";
 import { FLASH_MESSAGE, BACK_TO_ARTICLES_LIST } from '../state/actions/actionTypes';
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react';
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n'
 
 const SubscriptionForm = props => {
-  
+  const { t } = useTranslation()
+
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
   const confirmSubscription = async (event) => {
@@ -22,19 +25,19 @@ const SubscriptionForm = props => {
     let headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"))
 
     try {
-      let paymentStatus = await axios.post("/subscriptions", 
-    { stripeToken: token, email: currentUser.email}, { headers: headers})
-    if (paymentStatus.data.status === "paid") {
-      dispatch({
-        type: FLASH_MESSAGE, payload: {
-          flashMessage: "Thank you for your purchase!",
-          showForm: false,
-          currentUser: { email: currentUser.email, role: "subscriber" }
-        }
-      })
-    }
+      let paymentStatus = await axios.post("/subscriptions",
+        { stripeToken: token, email: currentUser.email }, { headers: headers })
+      if (paymentStatus.data.status === "paid") {
+        dispatch({
+          type: FLASH_MESSAGE, payload: {
+            flashMessage: "Thank you for your purchase!",
+            showForm: false,
+            currentUser: { email: currentUser.email, role: "subscriber" }
+          }
+        })
+      }
       dispatch({ type: BACK_TO_ARTICLES_LIST })
-    } 
+    }
     catch (response) {
       dispatch({
         type: FLASH_MESSAGE,
@@ -49,16 +52,16 @@ const SubscriptionForm = props => {
   return (
     <Modal open={true}>
       <form id="subscription-form">
-        <h1>Subscribe to become Premium Member!</h1>
-        <h3>Read all our content with a yearly subscription for 499 kr</h3>
-        <label>Card Number</label>
+        <h1>{t('Subscribe to become Premium Member!')}</h1>
+        <h3>{t('Read all our content with a yearly subscription for 499 kr')}</h3>
+        <label>{t('Card Number')}</label>
         <CardNumberElement />
-        <label>Card Expiration Date</label>
+        <label>{t('Card Expiration Date')}</label>
         <CardExpiryElement />
-        <label>Card CVC</label>
+        <label>{t('Card CVC')}</label>
         <CardCVCElement />
         <button onClick={event => confirmSubscription(event)}>
-          Purchase Subscription
+          {t('Purchase Subscription')}
         </button>
       </form>
     </Modal>
