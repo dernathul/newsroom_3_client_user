@@ -8,7 +8,7 @@ const stubLocation = options => ({
         };
         cy.stub(win.navigator.geolocation, "getCurrentPosition").callsFake(
             callback => {
-                return callback(ctubLocation);
+                return callback(stubLocation);
             }
         )
     }

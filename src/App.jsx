@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import CategoryHeader from "./components/CategoryHeader";
 import DisplayComponents from "./components/DisplayComponents";
 
 const App = props => {
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(pos => {
+    });
+  }, []);
 
   return (
     <>
