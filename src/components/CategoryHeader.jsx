@@ -16,7 +16,7 @@ import i18n from '../i18n'
 
 const CategoryHeader = props => {
   const { t } = useTranslation()
-  const edition = useSelector( state => state.session.edition )
+  const edition = useSelector(state => state.session.edition)
   const handleItemClick = event => {
     props.dispatch({
       type: SELECT_CATEGORY,
@@ -142,7 +142,7 @@ const CategoryHeader = props => {
           active={props.activeItem === "edition"}
           onClick={handleItemClick}
         >
-        {`${edition} Edition`}
+          {`${edition} Edition`}
         </Menu.Item>
         {switchLoginAndLogOut}
         <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
