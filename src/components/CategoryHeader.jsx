@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu, Segment } from "semantic-ui-react";
+import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 import {
   SELECT_CATEGORY,
@@ -15,7 +16,7 @@ import i18n from '../i18n'
 
 const CategoryHeader = props => {
   const { t } = useTranslation()
-
+  const edition = useSelector( state => state.session.edition )
   const handleItemClick = event => {
     props.dispatch({
       type: SELECT_CATEGORY,
@@ -134,34 +135,14 @@ const CategoryHeader = props => {
           {t('Culture')}
         </Menu.Item>
         <Menu.Item
-          name="Stockholm-edition"
-          id="Stockholm-edition"
+          name="edition"
+          id="edition"
           as={Link}
-          to={{ pathname: "/Stockholm-edition" }}
-          active={props.activeItem === "Stockholm-edition"}
+          to={{ pathname: "/edition" }}
+          active={props.activeItem === "edition"}
           onClick={handleItemClick}
         >
-          {t('Stockholm-edition')}
-        </Menu.Item>
-        <Menu.Item
-          name="Gothenburg-edition"
-          id="Gothenburg-edition"
-          as={Link}
-          to={{ pathname: "/Gothenburg-edition" }}
-          active={props.activeItem === "Gothenburg-edition"}
-          onClick={handleItemClick}
-        >
-          {t('Gothenburg-edition')}
-        </Menu.Item>
-        <Menu.Item
-          name="World-edition"
-          id="World-edition"
-          as={Link}
-          to={{ pathname: "/World-edition" }}
-          active={props.activeItem === "World-edition"}
-          onClick={handleItemClick}
-        >
-          {t('World-edition')}
+        {`${edition} Edition`}
         </Menu.Item>
         {switchLoginAndLogOut}
         <Menu.Item onClick={() => i18n.changeLanguage('en')}>EN</Menu.Item>
