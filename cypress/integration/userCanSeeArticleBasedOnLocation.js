@@ -17,7 +17,7 @@ describe('successfully displays', () => {
   });
 
   it('first article', () => {
-    cy.get("#category-header").should("contain", "Country wide")
+    cy.get("#category-header").should("contain", "Edition")
     cy.wait(500)
     cy.get("#category-header").should("contain", "Gothenburg Edition")
   })
