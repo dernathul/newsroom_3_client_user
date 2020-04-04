@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 #logout-button {
     margin-left:  20.5cm;
+=======
+.ui.secondary.button {
+    margin-left: 21cm;
+    font-size: large;
+    margin-top: 1rem;
+>>>>>>> 4cee0e19ed2e4b9c0ea42d92194ffb8fb7db7052
 }
 
 #sign-up {
@@ -14,6 +21,7 @@
 
 #logged-in-message {
     position: absolute;
+<<<<<<< HEAD
     margin-left: 36cm;
     margin-top: -4.1rem;
     color: white  
@@ -30,5 +38,45 @@
     position: absolute;
     width: 400px;
     margin-left: 28cm;
+=======
+    margin-left: 33.6cm;
+    margin-top: -8rem;
+    color: white
+   
+}
+
+.ui.placeholder {
+   /* margin-left: 10rem; */
+   /* width: 130px;
+   height: 100px; */
+}
+
+/* #title {
+    margin-left: 1rem;
+
+}
+
+#snippet {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+#open-article {
+  margin-left: 1rem;
+  border-width: 20px;
+} */
+
+#card {
+ 
+    display: inline-block;
+    
+}
+
+#single-article {
+
+    width: 420px;
+    display: inline-block;
+    margin-left: 15rem;
+>>>>>>> 4cee0e19ed2e4b9c0ea42d92194ffb8fb7db7052
 }
 

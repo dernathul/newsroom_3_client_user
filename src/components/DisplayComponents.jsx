@@ -8,17 +8,20 @@ import SubscriptionForm from "./SubscriptionForm";
 import { Elements } from "react-stripe-elements";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
+import logo from "../assets/logo.png";
+
+
 
 
 const DisplayComponents = props => {
   props.fetchArticles();
 
   return (
+    
     <>
        {props.showLoginForm && <LoginForm />}
        {props.showSignUpForm && <SignUpForm />}
-
-      <h1>The Mars Times</h1>
+      <img id="logo" src={logo} />
     
       {props.flashMessage.length > 0 && <h2 id="flash-message">{props.flashMessage}</h2>}
       {props.articleList && <DisplayArticles />}
@@ -36,6 +39,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
+    
     singleArticle: state.singleArticle,
     articleList: state.articleList,
     showForm: state.showForm,

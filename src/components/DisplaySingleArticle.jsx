@@ -20,6 +20,7 @@ const DisplaySingleArticle = props => {
 
   articleDetails = (
     <>
+<<<<<<< HEAD
       <img src={article.image} alt={`${article.title}-image`} />
       <h3 key={article.title}>{article.title}</h3>
       <h5 key={article.snippet}>{article.snippet}</h5>
@@ -30,6 +31,33 @@ const DisplaySingleArticle = props => {
       >
         {t('Back')}
       </button>
+=======
+      <div className="ui main container">
+     
+      <div id="single-article" class="ui centered card">
+            <div class="ui placeholder">
+              <div class="square image"></div>
+            </div>
+     
+          <div class="content">
+            <h1 class="header" key={article.title}>
+              {article.title}
+            </h1>
+            <div class="description">
+              <h5 key={article.snippet}>{article.snippet}</h5>
+              {showContent}
+              <button
+                id="home-button"
+                onClick={() => props.dispatch({ type: BACK_TO_ARTICLES_LIST })}
+              >
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+>>>>>>> 4cee0e19ed2e4b9c0ea42d92194ffb8fb7db7052
     </>
   );
   return <div id="single-article">{articleDetails}</div>;
