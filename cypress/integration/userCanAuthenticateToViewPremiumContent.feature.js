@@ -13,6 +13,11 @@ describe("regular user can login and can't view premium content", () => {
     });
     cy.route({
       method: "GET",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles",
+      response: "fixture:articles.json"
+    });
+    cy.route({
+      method: "GET",
       url: "https://newsroom3api.herokuapp.com/api/v1/articles/1",
       response: "fixture:specific_premium_article.json"
     });
@@ -53,6 +58,11 @@ describe("premium user can login, view premium content and logout", () => {
       url: "https://newsroom3api.herokuapp.com/api/v1/articles/1",
       response: "fixture:specific_premium_article.json"
     });
+    cy.route({
+      method: "GET",
+      url: "https://newsroom3api.herokuapp.com/api/v1/articles",
+      response: "fixture:articles.json"
+    });
     cy.visit("/");
   });
   it("user can succesfully login", () => {
@@ -76,7 +86,10 @@ describe("premium user can login, view premium content and logout", () => {
 
   it("user can succesfully logout", () => {
     cy.get("#login-button").should("not.exist");
-    cy.get("#logout-button").click();
+    cy.get("#category-header").within(() => {
+      cy.get("#logout-button").click();
+    })
+
     cy.get("#login-button").should("exist");
   });
 });

@@ -19,6 +19,7 @@ const DisplayComponents = props => {
        {props.showSignUpForm && <SignUpForm />}
 
       <h1>The Mars Times</h1>
+    
       {props.flashMessage.length > 0 && <h2 id="flash-message">{props.flashMessage}</h2>}
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}

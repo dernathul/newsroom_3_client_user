@@ -30,35 +30,35 @@ const RestrictedContent = props => {
         </button>
       </>
     ) : (
-      <>
-        <p>
-          This is premium article. If you want to subscribe, you need to be a
-          registered user
+        <>
+          <p>
+            This is premium article. If you want to subscribe, you need to be a
+            registered user
         </p>
-        <button
-          id="signup-button"
-          onClick={() =>
-            props.dispatch({
-              type: SHOW_SIGN_UP_FORM,
-              payload: { showSignUpForm: true, showLoginForm: false }
-            })
-          }
-        >
-          Sign Up
+          <button
+            id="signup-button"
+            onClick={() =>
+              props.dispatch({
+                type: SHOW_SIGN_UP_FORM,
+                payload: { showSignUpForm: true, showLoginForm: false }
+              })
+            }
+          >
+            Sign Up
         </button>
-        <button
-          id="login-button"
-          onClick={() =>
-            props.dispatch({
-              type: SHOW_LOGIN_FORM,
-              payload: { showLoginForm: true, showSignUpForm: false }
-            })
-          }
-        >
-          Login
+          <button
+            id="login-button"
+            onClick={() =>
+              props.dispatch({
+                type: SHOW_LOGIN_FORM,
+                payload: { showLoginForm: true, showSignUpForm: false }
+              })
+            }
+          >
+            Login
         </button>
-      </>
-    );
+        </>
+      );
 
   return (
     <>
