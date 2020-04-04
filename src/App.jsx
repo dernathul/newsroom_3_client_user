@@ -11,7 +11,6 @@ const App = props => {
     navigator.geolocation.getCurrentPosition(async pos => {
       const currentSession = await axios.post('https://newsroom3api.herokuapp.com/api/v1/auth/sign_in', { location: pos.coords })
       dispatch({ type: "SET_CURRENT_SESSION", payload: currentSession.data })
-      debugger;
     });
   }, []);
 
