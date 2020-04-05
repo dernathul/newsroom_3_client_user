@@ -33,7 +33,7 @@ const CategoryHeader = props => {
       <>
         <button
           class="ui secondary button"
-          id="logout-button"
+          id="accesslink"
           onClick={() =>
             props.dispatch({
               type: LOGOUT,
@@ -48,7 +48,7 @@ const CategoryHeader = props => {
         <>
           <button
             class="ui secondary button"
-            id="sign-up"
+            id="accesslink"
             onClick={() =>
               props.dispatch({
                 type: SHOW_SIGN_UP_FORM,
@@ -60,7 +60,7 @@ const CategoryHeader = props => {
           </button>
           <button
             class="ui secondary button"
-            id="login-button"
+            id="acesslink"
             onClick={() =>
               props.dispatch({
                 type: SHOW_LOGIN_FORM,
@@ -140,7 +140,7 @@ const CategoryHeader = props => {
         <Menu.Item onClick={() => i18n.changeLanguage('sv')}>SV</Menu.Item>
         <Menu.Item
           name="edition"
-          id="edition"
+          id="editionlink"
           as={Link}
           to={{ pathname: "/edition" }}
           active={props.activeItem === "edition"}

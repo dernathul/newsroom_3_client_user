@@ -1,10 +1,10 @@
-#logout-button {
-    margin-left:  20.5cm;
+#accesslink {
+    margin-left:  70%;
 }
 
-#sign-up {
-    margin-left: 12cm;
-
+#editionlink {
+    margin-left: 0%;
+    
 }
 
 #login-form {
@@ -15,9 +15,11 @@
 
 #logged-in-message {
     position: absolute;
-    margin-left: 36cm;
+    margin-left:60%;
     margin-top: -4.1rem;
-    color: white  
+    color: white;
+    font-variant: caps; 
+    font-size: 150%
 }
 
 #signed-up-message {
@@ -56,7 +58,5 @@
 }
 
 #link {
-    font-size: large;
-    
-
+    font-size: 120%;
 }
