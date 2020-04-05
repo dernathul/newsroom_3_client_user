@@ -8,6 +8,8 @@ import SubscriptionForm from "./SubscriptionForm";
 import { Elements } from "react-stripe-elements";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
+import  logo from "../assets/logo.png";
+import  landing from "../assets/landing.gif";
 
 
 const DisplayComponents = props => {
@@ -17,13 +19,13 @@ const DisplayComponents = props => {
     <>
        {props.showLoginForm && <LoginForm />}
        {props.showSignUpForm && <SignUpForm />}
-
-      <h1>The Mars Times</h1>
-    
+      <img id="logo" src={logo} alt="logo" />
+       <img id="add1" src={landing} alt="add1" href="https://futurism.com/mars-harvest" />
       {props.flashMessage.length > 0 && <h2 id="flash-message">{props.flashMessage}</h2>}
       {props.articleList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
       {props.showForm && <Elements><SubscriptionForm /></Elements>}
+      
     </>
   );
 };

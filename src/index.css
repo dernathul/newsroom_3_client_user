@@ -3,13 +3,14 @@
 }
 
 #sign-up {
-    margin-left: 20cm;  
+    margin-left: 12cm;
+
 }
 
 #login-form {
     position: absolute;
-    width: 400px;
-    margin-left: 28cm;
+    width: 25%;
+    margin-left: 73.5%;
 }
 
 #logged-in-message {
@@ -28,7 +29,34 @@
 
 #sign-up-form {
     position: absolute;
-    width: 400px;
-    margin-left: 28cm;
+    width: 25%;
+    margin-left: 73.5%;
 }
 
+#logo {
+    width: 73.5%;
+    float: top;
+}
+
+.body {
+    background-color: rgb(187, 207, 207);
+}
+
+#add1 {
+    width: 20%;
+    float: right;
+    margin-top: 10cm;
+    position: relative;
+    top: 20%;
+}
+
+#category-header {
+    background-color: darkblue;
+    width: 50%;
+}
+
+#link {
+    font-size: large;
+    
+
+}

@@ -78,7 +78,7 @@ const CategoryHeader = props => {
       <Menu id="category-header" inverted pointing secondary>
         <Menu.Item
           name="home"
-          id=""
+          id="link"
           as={Link}
           to={{ pathname: "/" }}
           active={props.activeItem === "all"}
@@ -86,7 +86,7 @@ const CategoryHeader = props => {
         >{t('Home')}</Menu.Item>
         <Menu.Item
           name="latest_news"
-          id="latest_news"
+          id="link"
           as={Link}
           to={{ pathname: "/latest_news" }}
           active={props.activeItem === "latest_news"}
@@ -96,7 +96,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="tech"
-          id="tech"
+          id="link"
           as={Link}
           to={{ pathname: "/tech" }}
           active={props.activeItem === "tech"}
@@ -106,7 +106,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="sports"
-          id="sports"
+          id="link"
           as={Link}
           to={{ pathname: "/sports" }}
           active={props.activeItem === "sports"}
@@ -116,7 +116,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="politics"
-          id="politics"
+          id="link"
           as={Link}
           to={{ pathname: "/politics" }}
           active={props.activeItem === "politics"}
@@ -126,7 +126,7 @@ const CategoryHeader = props => {
         </Menu.Item>
         <Menu.Item
           name="culture"
-          id="culture"
+          id="link"
           as={Link}
           to={{ pathname: "/culture" }}
           active={props.activeItem === "culture"}
